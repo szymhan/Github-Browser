@@ -33,6 +33,12 @@
 		A020028C22DC62F10063369C /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020028B22DC62F10063369C /* CheckBox.swift */; };
 		A020028E22DC8E490063369C /* SortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020028D22DC8E490063369C /* SortOptions.swift */; };
 		A020029022DC9E410063369C /* DropDown_+_insets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020028F22DC9E410063369C /* DropDown_+_insets.swift */; };
+		A020029222DCECDD0063369C /* HelveticaNeue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A020029122DCECDD0063369C /* HelveticaNeue-Bold.ttf */; };
+		A020029422DCED710063369C /* HelveticaNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A020029322DCED710063369C /* HelveticaNeue-Regular.ttf */; };
+		A020029622DCED8F0063369C /* UITableView_+_emptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020029522DCED8F0063369C /* UITableView_+_emptyView.swift */; };
+		A020029A22DCF9960063369C /* RepositoriesEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020029922DCF9960063369C /* RepositoriesEditorViewModel.swift */; };
+		A020029C22DCF9D50063369C /* RepositoryEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020029B22DCF9D50063369C /* RepositoryEditorViewModel.swift */; };
+		A020029E22DD00EE0063369C /* github.plist in Resources */ = {isa = PBXBuildFile; fileRef = A020029D22DD00EE0063369C /* github.plist */; };
 		DBE0EB5337F9063B56373412 /* Pods_Github_BrowserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8637AF42C944CC2601D8398F /* Pods_Github_BrowserTests.framework */; };
 		EF42B5E54FA8B304ECEDF256 /* Pods_Github_BrowserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6831333EF04F715B07A7C1FA /* Pods_Github_BrowserUITests.framework */; };
 /* End PBXBuildFile section */
@@ -91,6 +97,12 @@
 		A020028B22DC62F10063369C /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		A020028D22DC8E490063369C /* SortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptions.swift; sourceTree = "<group>"; };
 		A020028F22DC9E410063369C /* DropDown_+_insets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DropDown_+_insets.swift"; sourceTree = "<group>"; };
+		A020029122DCECDD0063369C /* HelveticaNeue-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HelveticaNeue-Bold.ttf"; path = "../../../Downloads/HelveticaNeue-Bold.ttf"; sourceTree = "<group>"; };
+		A020029322DCED710063369C /* HelveticaNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HelveticaNeue-Regular.ttf"; path = "../../../Downloads/HelveticaNeue-Regular.ttf"; sourceTree = "<group>"; };
+		A020029522DCED8F0063369C /* UITableView_+_emptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView_+_emptyView.swift"; sourceTree = "<group>"; };
+		A020029922DCF9960063369C /* RepositoriesEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesEditorViewModel.swift; sourceTree = "<group>"; };
+		A020029B22DCF9D50063369C /* RepositoryEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryEditorViewModel.swift; sourceTree = "<group>"; };
+		A020029D22DD00EE0063369C /* github.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = github.plist; sourceTree = "<group>"; };
 		B41AB0C80CEBA83F59FEB689 /* Pods-Github-BrowserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserTests.debug.xcconfig"; path = "Target Support Files/Pods-Github-BrowserTests/Pods-Github-BrowserTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDF69ADE09F1691366F72C00 /* Pods-Github-Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-Browser.release.xcconfig"; path = "Target Support Files/Pods-Github-Browser/Pods-Github-Browser.release.xcconfig"; sourceTree = "<group>"; };
 		D7D537EB6F9B3460633513CB /* Pods-Github-BrowserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserUITests.release.xcconfig"; path = "Target Support Files/Pods-Github-BrowserUITests/Pods-Github-BrowserUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +195,7 @@
 				A020023E22DBAC700063369C /* Assets.xcassets */,
 				A020024022DBAC700063369C /* LaunchScreen.storyboard */,
 				A020024322DBAC700063369C /* Info.plist */,
+				A020029D22DD00EE0063369C /* github.plist */,
 				A020023B22DBAC6F0063369C /* Github_Browser.xcdatamodeld */,
 			);
 			path = "Github-Browser";
@@ -238,6 +251,8 @@
 		A020026A22DBB1B20063369C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A020029922DCF9960063369C /* RepositoriesEditorViewModel.swift */,
+				A020029B22DCF9D50063369C /* RepositoryEditorViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -264,11 +279,12 @@
 		A020027522DBB4AF0063369C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A020027622DBB4D20063369C /* UIColor_+_init.swift */,
-				A020027822DBB5060063369C /* UIView_+_autolayout_+_bottomBorder.swift */,
-				A020027A22DBB5350063369C /* SearchTextfield_+_customization.swift */,
-				A020028922DC543A0063369C /* UIFont_+_init.swift */,
 				A020028F22DC9E410063369C /* DropDown_+_insets.swift */,
+				A020027A22DBB5350063369C /* SearchTextfield_+_customization.swift */,
+				A020027622DBB4D20063369C /* UIColor_+_init.swift */,
+				A020028922DC543A0063369C /* UIFont_+_init.swift */,
+				A020027822DBB5060063369C /* UIView_+_autolayout_+_bottomBorder.swift */,
+				A020029522DCED8F0063369C /* UITableView_+_emptyView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -276,6 +292,8 @@
 		A020027C22DBB6250063369C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				A020029322DCED710063369C /* HelveticaNeue-Regular.ttf */,
+				A020029122DCECDD0063369C /* HelveticaNeue-Bold.ttf */,
 				A020027D22DBB6250063369C /* Roboto-Regular.ttf */,
 				A020027E22DBB6250063369C /* Roboto-LightItalic.ttf */,
 				A020027F22DBB6250063369C /* Roboto-Bold.ttf */,
@@ -393,9 +411,12 @@
 			files = (
 				A020024222DBAC700063369C /* LaunchScreen.storyboard in Resources */,
 				A020023F22DBAC700063369C /* Assets.xcassets in Resources */,
+				A020029222DCECDD0063369C /* HelveticaNeue-Bold.ttf in Resources */,
+				A020029E22DD00EE0063369C /* github.plist in Resources */,
 				A020028222DBB6250063369C /* Roboto-Bold.ttf in Resources */,
 				A020028122DBB6250063369C /* Roboto-LightItalic.ttf in Resources */,
 				A020028022DBB6250063369C /* Roboto-Regular.ttf in Resources */,
+				A020029422DCED710063369C /* HelveticaNeue-Regular.ttf in Resources */,
 				A020023A22DBAC6F0063369C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,6 +544,7 @@
 				A020027722DBB4D20063369C /* UIColor_+_init.swift in Sources */,
 				A020028A22DC543A0063369C /* UIFont_+_init.swift in Sources */,
 				A020029022DC9E410063369C /* DropDown_+_insets.swift in Sources */,
+				A020029C22DCF9D50063369C /* RepositoryEditorViewModel.swift in Sources */,
 				A020026722DBB1780063369C /* RepositoriesBrowserViewController.swift in Sources */,
 				A020027B22DBB5350063369C /* SearchTextfield_+_customization.swift in Sources */,
 				A020027922DBB5060063369C /* UIView_+_autolayout_+_bottomBorder.swift in Sources */,
@@ -530,7 +552,9 @@
 				A020026D22DBB1E30063369C /* RepositoryTableViewCell.swift in Sources */,
 				A020023522DBAC6F0063369C /* AppDelegate.swift in Sources */,
 				A020028622DBDC930063369C /* SHButton.swift in Sources */,
+				A020029622DCED8F0063369C /* UITableView_+_emptyView.swift in Sources */,
 				A020028822DBDD320063369C /* Protocols.swift in Sources */,
+				A020029A22DCF9960063369C /* RepositoriesEditorViewModel.swift in Sources */,
 				A020028422DBDC120063369C /* SHFilterView.swift in Sources */,
 				A020026F22DBB2060063369C /* SHLabel.swift in Sources */,
 				A020027222DBB22E0063369C /* Fonts.swift in Sources */,

@@ -76,6 +76,7 @@ class SHFilterView: UIView {
        let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.addBottomBorder(color: .black, margins: 0, borderLineSize: 0.5)
+        tf.font = UIFont.init(font: .robotoRegular, size: 11)
         let font = UIFont.init(font: .robotoLightItalic, size: 10)
         tf.attributedPlaceholder = NSAttributedString(string: "author's nickname (optional, default: all)",attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray, NSAttributedString.Key.font: font!])
         return tf

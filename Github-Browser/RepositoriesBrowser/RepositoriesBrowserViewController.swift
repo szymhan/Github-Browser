@@ -14,14 +14,17 @@ class RepositoriesBrowserViewController: UIViewController {
     
     let topView = SHTopView()
     let filterView = SHFilterView()
+    let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.view.addSubview(topView)
         self.view.addSubview(filterView)
+        self.view.addSubview(tableView)
         fillUI()
         setDelegates()
+        addGestureRecognizers()
     }
     
     func fillUI() {
@@ -34,9 +37,25 @@ class RepositoriesBrowserViewController: UIViewController {
             make.width.equalTo(self.view)
             make.height.equalTo(self.view).multipliedBy(0.10)
         }
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(filterView.snp_bottom)
+            make.bottom.width.equalTo(self.view)
+        }
     }
     func setDelegates() {
         filterView.expandingDelegate = self
+    }
+    
+    func addGestureRecognizers() {
+        let viewTapGestureRec = UITapGestureRecognizer(target: self, action: #selector(handleViewTap))
+        //this line is important
+        viewTapGestureRec.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(viewTapGestureRec)
+    }
+    
+    @objc func handleViewTap() {
+        topView.searchTextField.resignFirstResponder()
+        filterView.authorTextField.resignFirstResponder()
     }
     
     
@@ -65,7 +84,19 @@ extension RepositoriesBrowserViewController : ViewExpanding {
                 make.height.equalTo(0)
             }
         }
-        
+    }
+}
+
+extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
 }
+
+
