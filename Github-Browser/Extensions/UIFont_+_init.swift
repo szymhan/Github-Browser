@@ -10,7 +10,7 @@ import UIKit
 
 
 extension UIFont {
-    convenience init? (font: FontsEnum, size: CGFloat) {
+    convenience init? (font: Fonts, size: CGFloat) {
         self.init(name: font.rawValue, size: size)
     }
 }

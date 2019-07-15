@@ -21,6 +21,7 @@ class RepositoriesBrowserViewController: UIViewController {
         self.view.addSubview(topView)
         self.view.addSubview(filterView)
         fillUI()
+        setDelegates()
     }
     
     func fillUI() {
@@ -29,13 +30,42 @@ class RepositoriesBrowserViewController: UIViewController {
             make.height.equalTo(self.view).multipliedBy(0.15)
         }
         filterView.snp.makeConstraints { (make) in
-            make.top.equalTo()
+            make.top.equalTo(topView.snp_bottom).offset(5)
+            make.width.equalTo(self.view)
+            make.height.equalTo(self.view).multipliedBy(0.10)
         }
     }
+    func setDelegates() {
+        filterView.expandingDelegate = self
+    }
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
 }
 
+extension RepositoriesBrowserViewController : ViewExpanding {
+    
+    func expand(view: UIView) {
+        UIView.animate(withDuration: 1) {
+            view.subviews.forEach({ (view) in
+                view.isHidden = false
+            })
+            view.sizeToFitCustom()
+        }
+    }
+    
+    func hide(view: UIView) {
+        UIView.animate(withDuration: 1) {
+            view.subviews.forEach({ (view) in
+                view.isHidden = true
+            })
+            view.snp.remakeConstraints { (make) in
+                make.height.equalTo(0)
+            }
+        }
+        
+    }
+    
+}

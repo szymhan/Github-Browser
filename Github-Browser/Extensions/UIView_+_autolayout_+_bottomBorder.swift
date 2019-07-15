@@ -13,6 +13,17 @@ extension UIView {
             self.translatesAutoresizingMaskIntoConstraints = false
         }
     }
+    
+    final func sizeToFitCustom() {
+        var w: CGFloat = 0,
+        h: CGFloat = 0
+        for view in subviews {
+                if view.frame.origin.x + view.frame.width > w { w = view.frame.origin.x + view.frame.width }
+                if view.frame.origin.y + view.frame.height > h { h = view.frame.origin.y + view.frame.height }
+        }
+        frame.size = CGSize(width: w, height: h)
+    }
+    
 }
 
 

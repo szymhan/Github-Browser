@@ -9,11 +9,12 @@
 import UIKit
 
 class SHButton: UIButton {
-    init(frame: CGRect = .zero, title: String, bgColor: UIColor = .white, textColor:UIColor = .black, font:FontsEnum = .robotoBold, size:CGFloat = 14) {
+    init(frame: CGRect = .zero, title: String, bgColor: UIColor = .white, textColor:UIColor = .black, font:Fonts = .robotoBold, size:CGFloat = 14) {
         super.init(frame: frame)
         self.checkIfAutoLayout()
         
         self.setTitle(title, for: .normal)
+        self.contentHorizontalAlignment = .leading
         self.titleLabel?.font = UIFont.init(name: font.rawValue, size: size)
         self.setTitleColor(textColor, for: .normal)
         self.backgroundColor = bgColor

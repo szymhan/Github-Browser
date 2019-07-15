@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum FontsEnum: String {
+enum Fonts: String {
     typealias RawValue = String
     case robotoBold = "Roboto-Bold"
     case robotoRegular = "Roboto-Regular"

@@ -8,6 +8,8 @@ target 'Github-Browser' do
   # Pods for Github-Browser
 pod "SearchTextField"
 pod 'SnapKit', '~> 4.0'
+pod "DynamicButton"
+pod 'iOSDropDown'
 
   target 'Github-BrowserTests' do
     inherit! :search_paths

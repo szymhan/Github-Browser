@@ -18,11 +18,11 @@
 		A020026722DBB1780063369C /* RepositoriesBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020026622DBB1780063369C /* RepositoriesBrowserViewController.swift */; };
 		A020026D22DBB1E30063369C /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020026C22DBB1E30063369C /* RepositoryTableViewCell.swift */; };
 		A020026F22DBB2060063369C /* SHLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020026E22DBB2060063369C /* SHLabel.swift */; };
-		A020027222DBB22E0063369C /* FontsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020027122DBB22E0063369C /* FontsEnum.swift */; };
+		A020027222DBB22E0063369C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020027122DBB22E0063369C /* Fonts.swift */; };
 		A020027422DBB25D0063369C /* SHTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020027322DBB25D0063369C /* SHTopView.swift */; };
 		A020027722DBB4D20063369C /* UIColor_+_init.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020027622DBB4D20063369C /* UIColor_+_init.swift */; };
 		A020027922DBB5060063369C /* UIView_+_autolayout_+_bottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020027822DBB5060063369C /* UIView_+_autolayout_+_bottomBorder.swift */; };
-		A020027B22DBB5350063369C /* SearchTextfield_+_inset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020027A22DBB5350063369C /* SearchTextfield_+_inset.swift */; };
+		A020027B22DBB5350063369C /* SearchTextfield_+_customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020027A22DBB5350063369C /* SearchTextfield_+_customization.swift */; };
 		A020028022DBB6250063369C /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A020027D22DBB6250063369C /* Roboto-Regular.ttf */; };
 		A020028122DBB6250063369C /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A020027E22DBB6250063369C /* Roboto-LightItalic.ttf */; };
 		A020028222DBB6250063369C /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A020027F22DBB6250063369C /* Roboto-Bold.ttf */; };
@@ -31,6 +31,8 @@
 		A020028822DBDD320063369C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020028722DBDD320063369C /* Protocols.swift */; };
 		A020028A22DC543A0063369C /* UIFont_+_init.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020028922DC543A0063369C /* UIFont_+_init.swift */; };
 		A020028C22DC62F10063369C /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020028B22DC62F10063369C /* CheckBox.swift */; };
+		A020028E22DC8E490063369C /* SortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020028D22DC8E490063369C /* SortOptions.swift */; };
+		A020029022DC9E410063369C /* DropDown_+_insets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020028F22DC9E410063369C /* DropDown_+_insets.swift */; };
 		DBE0EB5337F9063B56373412 /* Pods_Github_BrowserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8637AF42C944CC2601D8398F /* Pods_Github_BrowserTests.framework */; };
 		EF42B5E54FA8B304ECEDF256 /* Pods_Github_BrowserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6831333EF04F715B07A7C1FA /* Pods_Github_BrowserUITests.framework */; };
 /* End PBXBuildFile section */
@@ -74,11 +76,11 @@
 		A020026622DBB1780063369C /* RepositoriesBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesBrowserViewController.swift; sourceTree = "<group>"; };
 		A020026C22DBB1E30063369C /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		A020026E22DBB2060063369C /* SHLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHLabel.swift; sourceTree = "<group>"; };
-		A020027122DBB22E0063369C /* FontsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsEnum.swift; sourceTree = "<group>"; };
+		A020027122DBB22E0063369C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		A020027322DBB25D0063369C /* SHTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTopView.swift; sourceTree = "<group>"; };
 		A020027622DBB4D20063369C /* UIColor_+_init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor_+_init.swift"; sourceTree = "<group>"; };
 		A020027822DBB5060063369C /* UIView_+_autolayout_+_bottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView_+_autolayout_+_bottomBorder.swift"; sourceTree = "<group>"; };
-		A020027A22DBB5350063369C /* SearchTextfield_+_inset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchTextfield_+_inset.swift"; sourceTree = "<group>"; };
+		A020027A22DBB5350063369C /* SearchTextfield_+_customization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchTextfield_+_customization.swift"; sourceTree = "<group>"; };
 		A020027D22DBB6250063369C /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		A020027E22DBB6250063369C /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
 		A020027F22DBB6250063369C /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -87,6 +89,8 @@
 		A020028722DBDD320063369C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		A020028922DC543A0063369C /* UIFont_+_init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont_+_init.swift"; sourceTree = "<group>"; };
 		A020028B22DC62F10063369C /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		A020028D22DC8E490063369C /* SortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOptions.swift; sourceTree = "<group>"; };
+		A020028F22DC9E410063369C /* DropDown_+_insets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DropDown_+_insets.swift"; sourceTree = "<group>"; };
 		B41AB0C80CEBA83F59FEB689 /* Pods-Github-BrowserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserTests.debug.xcconfig"; path = "Target Support Files/Pods-Github-BrowserTests/Pods-Github-BrowserTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDF69ADE09F1691366F72C00 /* Pods-Github-Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-Browser.release.xcconfig"; path = "Target Support Files/Pods-Github-Browser/Pods-Github-Browser.release.xcconfig"; sourceTree = "<group>"; };
 		D7D537EB6F9B3460633513CB /* Pods-Github-BrowserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserUITests.release.xcconfig"; path = "Target Support Files/Pods-Github-BrowserUITests/Pods-Github-BrowserUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 		A020023322DBAC6F0063369C /* Github-Browser */ = {
 			isa = PBXGroup;
 			children = (
+				A020028722DBDD320063369C /* Protocols.swift */,
 				A020027C22DBB6250063369C /* Fonts */,
 				A020027022DBB2230063369C /* View */,
 				A020027522DBB4AF0063369C /* Extensions */,
@@ -179,7 +184,6 @@
 				A020024022DBAC700063369C /* LaunchScreen.storyboard */,
 				A020024322DBAC700063369C /* Info.plist */,
 				A020023B22DBAC6F0063369C /* Github_Browser.xcdatamodeld */,
-				A020028722DBDD320063369C /* Protocols.swift */,
 			);
 			path = "Github-Browser";
 			sourceTree = "<group>";
@@ -248,10 +252,11 @@
 		A020027022DBB2230063369C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A020027122DBB22E0063369C /* FontsEnum.swift */,
+				A020027122DBB22E0063369C /* Fonts.swift */,
 				A020026E22DBB2060063369C /* SHLabel.swift */,
 				A020028522DBDC930063369C /* SHButton.swift */,
 				A020028B22DC62F10063369C /* CheckBox.swift */,
+				A020028D22DC8E490063369C /* SortOptions.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,8 +266,9 @@
 			children = (
 				A020027622DBB4D20063369C /* UIColor_+_init.swift */,
 				A020027822DBB5060063369C /* UIView_+_autolayout_+_bottomBorder.swift */,
-				A020027A22DBB5350063369C /* SearchTextfield_+_inset.swift */,
+				A020027A22DBB5350063369C /* SearchTextfield_+_customization.swift */,
 				A020028922DC543A0063369C /* UIFont_+_init.swift */,
+				A020028F22DC9E410063369C /* DropDown_+_insets.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -442,15 +448,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Github-Browser/Pods-Github-Browser-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DynamicButton/DynamicButton.framework",
 				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDropDown.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -508,11 +518,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A020028E22DC8E490063369C /* SortOptions.swift in Sources */,
 				A020023D22DBAC6F0063369C /* Github_Browser.xcdatamodeld in Sources */,
 				A020027722DBB4D20063369C /* UIColor_+_init.swift in Sources */,
 				A020028A22DC543A0063369C /* UIFont_+_init.swift in Sources */,
+				A020029022DC9E410063369C /* DropDown_+_insets.swift in Sources */,
 				A020026722DBB1780063369C /* RepositoriesBrowserViewController.swift in Sources */,
-				A020027B22DBB5350063369C /* SearchTextfield_+_inset.swift in Sources */,
+				A020027B22DBB5350063369C /* SearchTextfield_+_customization.swift in Sources */,
 				A020027922DBB5060063369C /* UIView_+_autolayout_+_bottomBorder.swift in Sources */,
 				A020027422DBB25D0063369C /* SHTopView.swift in Sources */,
 				A020026D22DBB1E30063369C /* RepositoryTableViewCell.swift in Sources */,
@@ -521,7 +533,7 @@
 				A020028822DBDD320063369C /* Protocols.swift in Sources */,
 				A020028422DBDC120063369C /* SHFilterView.swift in Sources */,
 				A020026F22DBB2060063369C /* SHLabel.swift in Sources */,
-				A020027222DBB22E0063369C /* FontsEnum.swift in Sources */,
+				A020027222DBB22E0063369C /* Fonts.swift in Sources */,
 				A020028C22DC62F10063369C /* CheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

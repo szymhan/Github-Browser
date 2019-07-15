@@ -10,7 +10,7 @@ import UIKit
 
 extension UIColor {
     static var grayText: UIColor {return UIColor.init(rgb: 0x5E6083)}
-    static var grayZero: UIColor {return UIColor.init(rgb: 0xdfe6e9)}
+    static var checkboxBlue: UIColor {return UIColor.init(rgb: 0x74b9ff)}
     static var grayOne: UIColor {return UIColor.init(rgb: 0xb2bec3)}
     
     convenience init(red: Int, green: Int, blue: Int) {
