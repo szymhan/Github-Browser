@@ -12,9 +12,19 @@ import SnapKit
 
 class RepositoriesBrowserViewController: UIViewController {
     
-    let topView = SHTopView()
-    let filterView = SHFilterView()
-    let tableView = UITableView()
+    //MARK: VIEWS
+    let topView     = SHTopView()
+    let filterView  = SHFilterView()
+    let tableView   = UITableView()
+    
+    //MARK: VIEWMODEL
+    var repositoriesViewModel: RepositoriesEditorViewModel? {
+        didSet {
+            handleTableViewDataReloading()
+        }
+    }
+    //MARK: CONSTANTS
+    private let REPOSITORY_CELL_IDENTIFIER = "RepositoryCellIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,17 +43,22 @@ class RepositoriesBrowserViewController: UIViewController {
             make.height.equalTo(self.view).multipliedBy(0.15)
         }
         filterView.snp.makeConstraints { (make) in
-            make.top.equalTo(topView.snp_bottom).offset(5)
             make.width.equalTo(self.view)
+            make.top.equalTo(topView.snp_bottom).offset(5)
             make.height.equalTo(self.view).multipliedBy(0.10)
         }
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(filterView.snp_bottom)
             make.bottom.width.equalTo(self.view)
+            make.top.equalTo(filterView.snp_bottom).offset(10)
+            
         }
     }
     func setDelegates() {
         filterView.expandingDelegate = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.register(RepositoryTableViewCell.self, forCellReuseIdentifier: REPOSITORY_CELL_IDENTIFIER)
     }
     
     func addGestureRecognizers() {
@@ -87,13 +102,30 @@ extension RepositoriesBrowserViewController : ViewExpanding {
     }
 }
 
+extension RepositoriesBrowserViewController {
+    func handleTableViewDataReloading() {
+        
+    }
+}
+
 extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if let delegate = repositoriesViewModel {
+            if repositoriesViewModel?.repositories.count == 0 {
+              tableView.setEmptyView(title: "Run the search above.", message: "Found repositories will be there.")
+            } else {
+                tableView.restore()
+                return delegate.repositories.count
+            }
+        } else {
+            tableView.setEmptyView(title: "No data to show yet.", message: "Run search to let me show you some results.")
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: REPOSITORY_CELL_IDENTIFIER, for: indexPath)
+        return cell
     }
     
     

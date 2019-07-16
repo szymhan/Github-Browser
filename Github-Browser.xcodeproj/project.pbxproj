@@ -39,6 +39,10 @@
 		A020029A22DCF9960063369C /* RepositoriesEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020029922DCF9960063369C /* RepositoriesEditorViewModel.swift */; };
 		A020029C22DCF9D50063369C /* RepositoryEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020029B22DCF9D50063369C /* RepositoryEditorViewModel.swift */; };
 		A020029E22DD00EE0063369C /* github.plist in Resources */ = {isa = PBXBuildFile; fileRef = A020029D22DD00EE0063369C /* github.plist */; };
+		A02002A322DD22640063369C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002A222DD22640063369C /* NetworkClient.swift */; };
+		A02002A922DDBC260063369C /* RawServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002A822DDBC260063369C /* RawServerResponse.swift */; };
+		A02002AB22DDBC7D0063369C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002AA22DDBC7D0063369C /* Repository.swift */; };
+		A02002AD22DDBC9D0063369C /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002AC22DDBC9D0063369C /* Owner.swift */; };
 		DBE0EB5337F9063B56373412 /* Pods_Github_BrowserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8637AF42C944CC2601D8398F /* Pods_Github_BrowserTests.framework */; };
 		EF42B5E54FA8B304ECEDF256 /* Pods_Github_BrowserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6831333EF04F715B07A7C1FA /* Pods_Github_BrowserUITests.framework */; };
 /* End PBXBuildFile section */
@@ -103,6 +107,10 @@
 		A020029922DCF9960063369C /* RepositoriesEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesEditorViewModel.swift; sourceTree = "<group>"; };
 		A020029B22DCF9D50063369C /* RepositoryEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryEditorViewModel.swift; sourceTree = "<group>"; };
 		A020029D22DD00EE0063369C /* github.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = github.plist; sourceTree = "<group>"; };
+		A02002A222DD22640063369C /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		A02002A822DDBC260063369C /* RawServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawServerResponse.swift; sourceTree = "<group>"; };
+		A02002AA22DDBC7D0063369C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		A02002AC22DDBC9D0063369C /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		B41AB0C80CEBA83F59FEB689 /* Pods-Github-BrowserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserTests.debug.xcconfig"; path = "Target Support Files/Pods-Github-BrowserTests/Pods-Github-BrowserTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDF69ADE09F1691366F72C00 /* Pods-Github-Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-Browser.release.xcconfig"; path = "Target Support Files/Pods-Github-Browser/Pods-Github-Browser.release.xcconfig"; sourceTree = "<group>"; };
 		D7D537EB6F9B3460633513CB /* Pods-Github-BrowserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserUITests.release.xcconfig"; path = "Target Support Files/Pods-Github-BrowserUITests/Pods-Github-BrowserUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,9 +194,10 @@
 			isa = PBXGroup;
 			children = (
 				A020028722DBDD320063369C /* Protocols.swift */,
-				A020027C22DBB6250063369C /* Fonts */,
-				A020027022DBB2230063369C /* View */,
 				A020027522DBB4AF0063369C /* Extensions */,
+				A020027C22DBB6250063369C /* Fonts */,
+				A02002A622DDBC030063369C /* Model */,
+				A020027022DBB2230063369C /* View */,
 				A020026522DBB1420063369C /* RepositoriesBrowser */,
 				A020023422DBAC6F0063369C /* AppDelegate.swift */,
 				A020023822DBAC6F0063369C /* Main.storyboard */,
@@ -222,6 +231,7 @@
 		A020026522DBB1420063369C /* RepositoriesBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				A02002A122DD22540063369C /* Services */,
 				A020026B22DBB1BD0063369C /* ModelController */,
 				A020026A22DBB1B20063369C /* ViewModel */,
 				A020026922DBB1AC0063369C /* Model */,
@@ -299,6 +309,24 @@
 				A020027F22DBB6250063369C /* Roboto-Bold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A02002A122DD22540063369C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A02002A222DD22640063369C /* NetworkClient.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A02002A622DDBC030063369C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A02002A822DDBC260063369C /* RawServerResponse.swift */,
+				A02002AA22DDBC7D0063369C /* Repository.swift */,
+				A02002AC22DDBC9D0063369C /* Owner.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -539,6 +567,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A02002A922DDBC260063369C /* RawServerResponse.swift in Sources */,
+				A02002AD22DDBC9D0063369C /* Owner.swift in Sources */,
 				A020028E22DC8E490063369C /* SortOptions.swift in Sources */,
 				A020023D22DBAC6F0063369C /* Github_Browser.xcdatamodeld in Sources */,
 				A020027722DBB4D20063369C /* UIColor_+_init.swift in Sources */,
@@ -547,9 +577,11 @@
 				A020029C22DCF9D50063369C /* RepositoryEditorViewModel.swift in Sources */,
 				A020026722DBB1780063369C /* RepositoriesBrowserViewController.swift in Sources */,
 				A020027B22DBB5350063369C /* SearchTextfield_+_customization.swift in Sources */,
+				A02002AB22DDBC7D0063369C /* Repository.swift in Sources */,
 				A020027922DBB5060063369C /* UIView_+_autolayout_+_bottomBorder.swift in Sources */,
 				A020027422DBB25D0063369C /* SHTopView.swift in Sources */,
 				A020026D22DBB1E30063369C /* RepositoryTableViewCell.swift in Sources */,
+				A02002A322DD22640063369C /* NetworkClient.swift in Sources */,
 				A020023522DBAC6F0063369C /* AppDelegate.swift in Sources */,
 				A020028622DBDC930063369C /* SHButton.swift in Sources */,
 				A020029622DCED8F0063369C /* UITableView_+_emptyView.swift in Sources */,

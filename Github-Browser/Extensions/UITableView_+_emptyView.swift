@@ -13,9 +13,9 @@ extension UITableView {
     
     func setEmptyView(title: String, message: String) {
         let emptyImageView: UIImageView = {
-           let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
-            imageView.image = UIImage(named: "empty")
-            imageView.contentMode = .scaleAspectFit
+           let imageView            = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+            imageView.image         = UIImage(named: "empty")
+            imageView.contentMode   = .scaleAspectFit
             return imageView
         }()
         emptyImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,6 +40,8 @@ extension UITableView {
             make.centerX.equalTo(emptyView)
         }
         emptyImageView.snp.makeConstraints { (make) in
+            make.width.equalTo(emptyView).multipliedBy(0.3)
+            make.height.equalTo(emptyImageView.snp_width)
             make.bottom.equalTo(titleLabel.snp_top).offset(-10)
             make.centerX.equalTo(titleLabel)
         }

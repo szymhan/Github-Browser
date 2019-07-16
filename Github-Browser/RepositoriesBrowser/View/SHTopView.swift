@@ -47,7 +47,7 @@ class SHTopView: UIView {
         super.init(frame: frame)
         self.checkIfAutoLayout()
         
-        backgroundColor = .grayOne
+        backgroundColor = .iphoneBlue
         
         self.addSubview(titleLabel)
         self.addSubview(subtitleLabel)
