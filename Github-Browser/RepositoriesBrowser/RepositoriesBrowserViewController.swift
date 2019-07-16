@@ -10,12 +10,31 @@ import UIKit
 import SearchTextField
 import SnapKit
 
+enum ExpandedViewOption {
+    case visible
+    case hidden
+}
+
 class RepositoriesBrowserViewController: UIViewController {
     
     //MARK: VIEWS
     let topView     = SHTopView()
-    let filterView  = SHFilterView()
-    let tableView   = UITableView()
+   // let filterView  = SHFilterView()
+    let tableView: UITableView = {
+       let tv = UITableView()
+        tv.separatorStyle = .none
+        return tv
+    }()
+    let showMoreFilters:UIButton = {
+        let button = UIButton(type: .system)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.setTitle("show more filters", for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.titleEdgeInsets = UIEdgeInsets(top: 0,left: 10,bottom: 0,right: 0)
+        return button
+    }()
+//    let repositoriesCell = RepositoriesTableViewCell(style: .default, reuseIdentifier: "repositories_identifier" )
+    let filtersCell = FiltersTableViewCell(style: .subtitle, reuseIdentifier: "filters_identifier")
     
     //MARK: VIEWMODEL
     var repositoriesViewModel: RepositoriesEditorViewModel? {
@@ -23,42 +42,57 @@ class RepositoriesBrowserViewController: UIViewController {
             handleTableViewDataReloading()
         }
     }
+    //MARK: VARIABLES
+    var isFiltersCellExpanded:Bool = true
+    var expandedFiltersView:ExpandedViewOption = .hidden {
+        didSet {
+            switch expandedFiltersView {
+            case .hidden:
+                showMoreFilters.setTitle("show more filters", for: .normal)
+            case .visible:
+                showMoreFilters.setTitle("hide filters", for: .normal)
+            }
+        }
+    }
+    
     //MARK: CONSTANTS
-    private let REPOSITORY_CELL_IDENTIFIER = "RepositoryCellIdentifier"
+    //
+    let REPOSITORIES_IDENTIFIER:String  = "repositories_identifier"
+    let FILTERS_IDENTIFIER:String       = "filters_identifier"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.view.addSubview(topView)
-        self.view.addSubview(filterView)
         self.view.addSubview(tableView)
         fillUI()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
         setDelegates()
         addGestureRecognizers()
     }
+
     
     func fillUI() {
         topView.snp.makeConstraints{ (make) in
             make.top.left.right.equalTo(self.view)
             make.height.equalTo(self.view).multipliedBy(0.15)
         }
-        filterView.snp.makeConstraints { (make) in
-            make.width.equalTo(self.view)
-            make.top.equalTo(topView.snp_bottom).offset(5)
-            make.height.equalTo(self.view).multipliedBy(0.10)
-        }
         tableView.snp.makeConstraints { (make) in
             make.bottom.width.equalTo(self.view)
-            make.top.equalTo(filterView.snp_bottom).offset(10)
+            make.top.equalTo(topView.snp_bottom).offset(2)
             
         }
     }
     func setDelegates() {
-        filterView.expandingDelegate = self
+        //filterView.expandingDelegate = self
+        topView.searchTextField.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(RepositoryTableViewCell.self, forCellReuseIdentifier: REPOSITORY_CELL_IDENTIFIER)
+        tableView.register(RepositoriesTableViewCell.self, forCellReuseIdentifier: REPOSITORIES_IDENTIFIER)
+        tableView.register(FiltersTableViewCell.self, forCellReuseIdentifier: FILTERS_IDENTIFIER)
     }
     
     func addGestureRecognizers() {
@@ -70,7 +104,6 @@ class RepositoriesBrowserViewController: UIViewController {
     
     @objc func handleViewTap() {
         topView.searchTextField.resignFirstResponder()
-        filterView.authorTextField.resignFirstResponder()
     }
     
     
@@ -79,56 +112,65 @@ class RepositoriesBrowserViewController: UIViewController {
     }
 }
 
-extension RepositoriesBrowserViewController : ViewExpanding {
-    
-    func expand(view: UIView) {
-        UIView.animate(withDuration: 1) {
-            view.subviews.forEach({ (view) in
-                view.isHidden = false
-            })
-            view.sizeToFitCustom()
-        }
-    }
-    
-    func hide(view: UIView) {
-        UIView.animate(withDuration: 1) {
-            view.subviews.forEach({ (view) in
-                view.isHidden = true
-            })
-            view.snp.remakeConstraints { (make) in
-                make.height.equalTo(0)
-            }
-        }
-    }
-}
+
 
 extension RepositoriesBrowserViewController {
     func handleTableViewDataReloading() {
         
     }
+    
+    func buildURL(){
+        let query:String = QueryBuilder.build(fromText: topView.searchTextField.text)
+    }
 }
 
 extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let delegate = repositoriesViewModel {
-            if repositoriesViewModel?.repositories.count == 0 {
-              tableView.setEmptyView(title: "Run the search above.", message: "Found repositories will be there.")
-            } else {
-                tableView.restore()
-                return delegate.repositories.count
-            }
-        } else {
-            tableView.setEmptyView(title: "No data to show yet.", message: "Run search to let me show you some results.")
-        }
-        return 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: REPOSITORY_CELL_IDENTIFIER, for: indexPath)
-        return cell
+       // if indexPath.count == 0 {
+        print("assigning cell...")
+ //          let cell = tableView.dequeueReusableCell(withIdentifier: FILTERS_IDENTIFIER , for: indexPath) as! FiltersTableViewCell
+            let cell = filtersCell
+            return cell
+//        } else {
+//            let cell = repositoriesCell
+////            let cell = tableView.dequeueReusableCell(withIdentifier: REPOSITORIES_IDENTIFIER , for: indexPath) as! RepositoriesTableViewCell
+//            return cell
+      //  }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       
+        return UITableView.automaticDimension
     }
     
     
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            return showMoreFilters
+        } else {
+            return nil
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 }
+
+extension RepositoriesBrowserViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+
 
 

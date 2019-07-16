@@ -16,6 +16,14 @@ class SHTopView: UIView {
     let titleLabel = SHLabel(text: "Repository Browser", color: .white, size: 26, textAlign: .center, font: .robotoBold)
     let subtitleLabel = SHLabel(text: "Fill the search field below and use the filters to search through Git Hub repositories", color: .white, size: 12, textAlign: .justified)
     
+    let searchIcon:UIImageView = {
+       let si = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+        si.translatesAutoresizingMaskIntoConstraints = false
+        si.image        = UIImage(named: "mini-search")
+        si.contentMode  = .scaleAspectFit
+        return si
+    }()
+    
     
     let searchTextField: SearchTextField = {
         let textField = SearchTextField()
@@ -25,16 +33,13 @@ class SHTopView: UIView {
         //creating header for the Last Searched hints
         textField.customHeaderwithText("Last Searched")
         textField.textColor     = .white
-        textField.font          = UIFont.init(font: .robotoRegular, size: 13)
-        let placeHolderFont     = UIFont.init(font: .robotoLightItalic, size: 12)
+        textField.font          = UIFont.init(font: .robotoRegular, size: 16)
+        let placeHolderFont     = UIFont.init(font: .robotoLightItalic, size: 13)
         textField.customAttributedPlaceholderWithFont(placeHolderFont, text: "Fill this field with search text", andFontColor: .white)
         //adding white bottom border to the field
         textField.addBottomBorder(color: UIColor.white, margins: 0, borderLineSize: 1)
         textField.returnKeyType = UIReturnKeyType.go
         //creating maginfier icon for textField leftView
-        let iconLabel = SHLabel(text: "🔍", color: .white, size: 12, textAlign: .left)
-        textField.leftView      = iconLabel
-        textField.leftViewMode  = .always
         //startVisible=true allows to show last searched queries on field focus
         textField.startVisible  = true
         return textField
@@ -51,6 +56,7 @@ class SHTopView: UIView {
         
         self.addSubview(titleLabel)
         self.addSubview(subtitleLabel)
+        self.addSubview(searchIcon)
         self.addSubview(searchTextField)
         fillUI()
         
@@ -70,8 +76,14 @@ class SHTopView: UIView {
         }
         
         //searchTextField.bottomAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 5).isActive = true
+        searchIcon.snp.makeConstraints { (make) in
+            make.leading.equalTo(subtitleLabel)
+            make.bottom.equalTo(self).offset(-5)
+            make.height.equalTo(20)
+        }
         searchTextField.snp.makeConstraints{(make) in
-            make.leading.trailing.equalTo(subtitleLabel)
+            make.left.equalTo(searchIcon.snp_right).offset(5)
+            make.trailing.equalTo(subtitleLabel)
             make.bottom.equalTo(self).offset(-5)
         }
     }

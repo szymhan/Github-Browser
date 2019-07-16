@@ -11,11 +11,6 @@ import SnapKit
 import DynamicButton
 import iOSDropDown
 
-enum ExpandedViewOption {
-    case visible
-    case hidden
-}
-
 class SHFilterView: UIView {
     var frameHight: CGFloat = 0
     var expandingDelegate: ViewExpanding?
