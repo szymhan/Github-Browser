@@ -22,7 +22,7 @@ class RepositoriesBrowserViewController: UIViewController {
    // let filterView  = SHFilterView()
     let tableView: UITableView = {
        let tv = UITableView()
-        tv.separatorStyle = .none
+        tv.separatorStyle   = .none
         return tv
     }()
     let showMoreFilters:UIButton = {
@@ -31,6 +31,7 @@ class RepositoriesBrowserViewController: UIViewController {
         button.setTitle("show more filters", for: .normal)
         button.contentHorizontalAlignment = .left
         button.titleEdgeInsets = UIEdgeInsets(top: 0,left: 10,bottom: 0,right: 0)
+    
         return button
     }()
 //    let repositoriesCell = RepositoriesTableViewCell(style: .default, reuseIdentifier: "repositories_identifier" )
@@ -48,7 +49,7 @@ class RepositoriesBrowserViewController: UIViewController {
         didSet {
             switch expandedFiltersView {
             case .hidden:
-                showMoreFilters.setTitle("show more filters", for: .normal)
+                showMoreFilters.setTitle("show filters", for: .normal)
             case .visible:
                 showMoreFilters.setTitle("hide filters", for: .normal)
             }
@@ -77,7 +78,7 @@ class RepositoriesBrowserViewController: UIViewController {
     func fillUI() {
         topView.snp.makeConstraints{ (make) in
             make.top.left.right.equalTo(self.view)
-            make.height.equalTo(self.view).multipliedBy(0.15)
+            //make.height.equalTo(self.view).multipliedBy(0.20)
         }
         tableView.snp.makeConstraints { (make) in
             make.bottom.width.equalTo(self.view)
@@ -127,7 +128,15 @@ extension RepositoriesBrowserViewController {
 extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            switch expandedFiltersView {
+            case .hidden:
+                return 0
+            case .visible:
+                return 1
+            }
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -142,7 +151,7 @@ extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDat
 //            return cell
       //  }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        
         return UITableView.automaticDimension
@@ -152,11 +161,30 @@ extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
+            showMoreFilters.addTarget(self, action: #selector(handleExpandHide), for: .touchUpInside)
             return showMoreFilters
         } else {
             return nil
         }
     }
+    
+    
+    @objc func handleExpandHide() {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        switch expandedFiltersView {
+        case .visible:
+            expandedFiltersView = .hidden
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        case .hidden:
+            expandedFiltersView = .visible
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.tableView.insertRows(at: [indexPath], with: .fade)
+            //self.tableView.deleteRows(at: [0], with: .fade)
+        }
+    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

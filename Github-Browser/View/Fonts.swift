@@ -13,5 +13,7 @@ enum Fonts: String {
     case robotoBold = "Roboto-Bold"
     case robotoRegular = "Roboto-Regular"
     case robotoLightItalic = "Roboto-LightItalic"
+    case helveticaBold = "HelveticaNeue-Bold"
+    case helveticaRegular = "HelveticaNeue-Regular"
     
 }

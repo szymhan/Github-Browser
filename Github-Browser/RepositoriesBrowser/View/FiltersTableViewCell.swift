@@ -98,6 +98,10 @@ class FiltersTableViewCell: UITableViewCell {
         return dd
     }()
     
+    //MARK: VARIABLES
+    
+    let isExpanded:Bool = false
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none

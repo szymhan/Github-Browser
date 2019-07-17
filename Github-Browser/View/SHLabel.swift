@@ -9,8 +9,7 @@
 import UIKit
 
 class SHLabel: UILabel {
-    init(text:String, color:UIColor = .white, size:CGFloat=16, textAlign:NSTextAlignment = .center,
-         font:Fonts = .robotoRegular) {
+    init(text:String, color:UIColor = .black, size:CGFloat=14, textAlign:NSTextAlignment = .center, font:Fonts = .robotoRegular) {
         super.init(frame: .zero)
         self.text = text
         self.textColor=color

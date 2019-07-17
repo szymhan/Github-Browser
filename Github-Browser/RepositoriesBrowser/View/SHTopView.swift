@@ -64,28 +64,35 @@ class SHTopView: UIView {
     
     func fillUI() {
         
-        subtitleLabel.snp.makeConstraints { (make) in
-            make.centerY.equalTo(self.snp_centerYWithinMargins)
-            make.left.equalTo(self.snp_left).offset(20)
-            make.width.equalTo(self.snp_width).offset(-100)
-        }
-        
         titleLabel.snp.makeConstraints { (make) in
-            make.bottom.equalTo(subtitleLabel.snp_top).offset(-5)
+            make.top.equalTo(safeAreaLayoutGuide)
             make.centerX.equalTo(self.snp_centerX)
         }
+        subtitleLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self)
+            make.width.equalTo(self.snp_width).multipliedBy(0.80)
+        }
         
-        //searchTextField.bottomAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 5).isActive = true
-        searchIcon.snp.makeConstraints { (make) in
-            make.leading.equalTo(subtitleLabel)
-            make.bottom.equalTo(self).offset(-5)
-            make.height.equalTo(20)
-        }
         searchTextField.snp.makeConstraints{(make) in
-            make.left.equalTo(searchIcon.snp_right).offset(5)
-            make.trailing.equalTo(subtitleLabel)
+            make.leading.trailing.equalTo(subtitleLabel)
             make.bottom.equalTo(self).offset(-5)
+            make.centerX.equalTo(self)
+            make.height.equalTo(25)
         }
+        
+        searchIcon.snp.makeConstraints { (make) in
+            make.right.equalTo(searchTextField.snp_left)
+            make.bottom.equalTo(self).offset(-5)
+            make.height.equalTo(15)
+        }
+        
+        subtitleLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp_bottom)
+            make.bottom.equalTo(searchTextField.snp_top)
+        }
+        
+        self.sizeToFitCustom()
+    
     }
     
     
