@@ -22,6 +22,7 @@ class RepositoriesBrowserViewController: UIViewController {
    // let filterView  = SHFilterView()
     let tableView: UITableView = {
        let tv = UITableView()
+        tv.isScrollEnabled  = false
         tv.separatorStyle   = .none
         return tv
     }()
