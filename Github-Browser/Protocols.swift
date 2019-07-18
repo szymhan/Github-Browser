@@ -16,3 +16,9 @@ protocol ViewExpanding {
     func expand(view:UIView)
     func hide(view: UIView)
 }
+
+protocol QueryElementDelegate {
+    func returnContent() -> String?
+}
+
+
