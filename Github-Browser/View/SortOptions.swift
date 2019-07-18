@@ -9,14 +9,13 @@
 import Foundation
 
 enum SortOptions: String, CaseIterable {
-    case bestMatchDesc = "Best match desc"
-    case bestMatchAsc = "Best match asc"
-    case forksDesc = "Forks desc"
-    case forksAsc = "Forks asc"
-    case starsDesc = "Stars desc"
-    case starsAsc = "Stars asc"
-    case updatedDesc = "Updated desc"
-    case updatedAsc = "Updated asc"
+    case bestMatchDesc  = "Best match"
+    case mostForks      = "Most Forks"
+    case fewestForks    = "Fewest Forks"
+    case mostStars      = "Most Stars"
+    case fewestStars    = "Fewest Stars"
+    case updatedDesc    = "Recently Updated"
+    case updatedAsc     = "Least Recently Updated"
     
     static func allCases() -> [String] {
         var array: [String] = []

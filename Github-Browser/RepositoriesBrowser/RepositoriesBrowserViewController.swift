@@ -29,7 +29,7 @@ class RepositoriesBrowserViewController: UIViewController {
     let showMoreFilters:UIButton = {
         let button = UIButton(type: .system)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.setTitle("show more filters", for: .normal)
+        button.setTitle("show filters", for: .normal)
         button.contentHorizontalAlignment = .left
         button.titleEdgeInsets = UIEdgeInsets(top: 0,left: 10,bottom: 0,right: 0)
     

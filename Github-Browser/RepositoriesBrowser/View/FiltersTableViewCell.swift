@@ -1,5 +1,5 @@
 //
-//  SHFilterView.swift
+//  FiltersTableViewCell.swift
 //  Github-Browser
 //
 //  Created by Hanzel, Szymon on 14/07/2019.
@@ -16,13 +16,13 @@ class FiltersTableViewCell: UITableViewCell {
 
     
     //MARK: LABELS
-    let authorLabel = SHLabel(text: "author name :", textAlign: .right, font: .helveticaRegular)
-    let searchInLabel = SHLabel(text: "search in :", textAlign: .right, font: .helveticaRegular)
-    let readmeLabel = SHLabel(text: "readme", textAlign: .left, font: .helveticaRegular)
-    let sortByLabel = SHLabel(text: "sort by :", textAlign: .right, font: .helveticaRegular)
-    let languageLabel = SHLabel(text: "language :", textAlign: .right, font: .helveticaRegular)
-    let nameLabel = SHLabel(text: "name",  textAlign: .left, font: .helveticaRegular)
-    let descriptionLabel = SHLabel(text: "description", textAlign: .left, font: .helveticaRegular)
+    let authorLabel         = SHLabel(text: "author name :", textAlign: .right, font: .helveticaRegular)
+    let searchInLabel       = SHLabel(text: "search in :", textAlign: .right, font: .helveticaRegular)
+    let readmeLabel         = SHLabel(text: "readme", textAlign: .left, font: .helveticaRegular)
+    let sortByLabel         = SHLabel(text: "sort by :", textAlign: .right, font: .helveticaRegular)
+    let languageLabel       = SHLabel(text: "language :", textAlign: .right, font: .helveticaRegular)
+    let nameLabel           = SHLabel(text: "name",  textAlign: .left, font: .helveticaRegular)
+    let descriptionLabel    = SHLabel(text: "description", textAlign: .left, font: .helveticaRegular)
     
     //MARK: BUTTONS
     let readmeCheckbox:SHCheckBox = {
@@ -66,6 +66,7 @@ class FiltersTableViewCell: UITableViewCell {
         let font = UIFont.init(font: .robotoLightItalic, size: 12)
         tf.attributedPlaceholder = NSAttributedString(string: "(optional) default: all",attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray, NSAttributedString.Key.font: font!])
         tf.textColor = .black
+        tf.disableAutoTypes()
         return tf
     }()
     
@@ -79,8 +80,11 @@ class FiltersTableViewCell: UITableViewCell {
         tf.customAttributedPlaceholderWithFont(placeHolderFont, text: "(optional) default:all", andFontColor: .gray)
         //adding white bottom border to the field
         tf.addBottomBorder(color: .black, margins: 0, borderLineSize: 0.5)
+        //maximum number of shown hints
+        tf.maxNumberOfResults       = 5
         //creating maginfier icon for textField leftView
-        tf.startVisible  = true
+        tf.startVisible             = true
+        tf.disableAutoTypes()
         return tf
     }()
     
