@@ -25,8 +25,8 @@ class FiltersTableViewCell: UITableViewCell {
     let descriptionLabel = SHLabel(text: "description", textAlign: .left, font: .helveticaRegular)
     
     //MARK: BUTTONS
-    let readmeCheckbox:Checkbox = {
-        let rc = Checkbox(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
+    let readmeCheckbox:SHCheckBox = {
+        let rc = SHCheckBox(tag:"readme",frame: CGRect(x: 0, y: 0, width: 15, height: 15))
         rc.checkedBorderColor   = .checkboxBlue
         rc.uncheckedBorderColor = .grayOne
         rc.checkmarkColor       = .checkboxBlue
@@ -35,8 +35,8 @@ class FiltersTableViewCell: UITableViewCell {
         rc.useHapticFeedback    = true
         return rc
     }()
-    let descriptionCheckBox:Checkbox = {
-        let rc = Checkbox(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
+    let descriptionCheckBox:SHCheckBox = {
+        let rc = SHCheckBox(tag:"description",frame: CGRect(x: 0, y: 0, width: 15, height: 15))
         rc.checkedBorderColor   = .checkboxBlue
         rc.uncheckedBorderColor = .grayOne
         rc.checkmarkColor       = .checkboxBlue
@@ -46,8 +46,8 @@ class FiltersTableViewCell: UITableViewCell {
         rc.isChecked            = true
         return rc
     }()
-    let nameCheckbox:Checkbox = {
-        let rc = Checkbox(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
+    let nameCheckbox:SHCheckBox = {
+        let rc = SHCheckBox(tag: "name",frame: CGRect(x: 0, y: 0, width: 15, height: 15))
         rc.checkedBorderColor   = .checkboxBlue
         rc.uncheckedBorderColor = .grayOne
         rc.checkmarkColor       = .checkboxBlue
@@ -58,8 +58,8 @@ class FiltersTableViewCell: UITableViewCell {
         return rc
     }()
     //MARK: TEXTFIELDS
-    let authorTextField: UITextField = {
-        let tf = UITextField()
+    let authorTextField: SHTextField = {
+        let tf = SHTextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.addBottomBorder(color: .black, margins: 0, borderLineSize: 0.5)
         tf.font = UIFont.init(font: .helveticaRegular, size: 14)
@@ -69,11 +69,10 @@ class FiltersTableViewCell: UITableViewCell {
         return tf
     }()
     
-    let languageTextField: SearchTextField = {
-       let tf = SearchTextField()
+    let languageTextField: SHSearchTextField = {
+       let tf = SHSearchTextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.theme.bgColor = .white
-        tf.filterStrings(["red","yellow"])
         tf.textColor        = .black
         tf.font             = UIFont.init(font: .helveticaRegular, size: 14)
         let placeHolderFont = UIFont.init(font: .robotoLightItalic, size: 12)
@@ -85,8 +84,8 @@ class FiltersTableViewCell: UITableViewCell {
         return tf
     }()
     
-    let sortDropDown: DropDown = {
-        let dd = DropDown(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
+    let sortDropDown: SHDropDown = {
+        let dd = SHDropDown(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
         dd.font = UIFont.init(font: .robotoLightItalic, size: 12)
         dd.optionArray      = SortOptions.allCases()
         dd.selectedIndex    = 0
