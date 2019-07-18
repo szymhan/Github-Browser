@@ -11,9 +11,12 @@ import UIKit
 class SHTextField: UITextField, QueryElementDelegate {
     func returnContent() -> String? {
         if let text = self.text {
+            if text == "" {
+                return nil
+            }
             return text
         } else {
-            return ""
+            return nil
         }
     }
     

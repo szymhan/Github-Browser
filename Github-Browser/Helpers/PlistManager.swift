@@ -35,6 +35,24 @@ class PlistManager {
             completion(nil,.fileDoesNotExist)
         }
     }
+        
+    public func getArrayFrom(_ name:String, completion:(_ result : NSArray?, _ error :PlistManagerError?) -> ()) {
+            
+            guard let path = Bundle.main.path(forResource: name, ofType: "plist") else {
+                completion (nil,.fileDoesNotExist)
+                return }
+            
+            let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: path) {
+                guard let array = NSArray(contentsOfFile: path) else {
+                    completion(nil,.fileUnavailable)
+                    return }
+                completion(array,nil)
+            } else {
+                completion(nil,.fileDoesNotExist)
+            }
+        }
+
     
     
 }

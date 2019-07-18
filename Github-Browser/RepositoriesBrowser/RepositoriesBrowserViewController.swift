@@ -56,6 +56,8 @@ class RepositoriesBrowserViewController: UIViewController {
             }
         }
     }
+    var queryConstructor: QueryConstructor?
+    var sortOrderConstructor = SortOrderConstructor(selectedText: "Best Match")
     
     //MARK: CONSTANTS
     //
@@ -74,6 +76,23 @@ class RepositoriesBrowserViewController: UIViewController {
         setDelegates()
         addGestureRecognizers()
     }
+    
+    override func viewDidLayoutSubviews() {
+        let builder = QueryConstructorBuilder()
+        queryConstructor = builder
+            .appendText(topView.searchTextField)
+            .appendLanguage(filtersCell.languageTextField)
+            .appendUser(filtersCell.authorTextField)
+            .appendIn([filtersCell.readmeCheckbox,
+                       filtersCell.nameCheckbox,
+                       filtersCell.descriptionCheckBox])
+            .build()
+        
+        filtersCell.sortDropDown.didSelect { (selectedText, _, _) in
+            self.sortOrderConstructor = SortOrderConstructor(selectedText: selectedText)
+        }
+    }
+    
 
     
     func fillUI() {
@@ -122,10 +141,16 @@ extension RepositoriesBrowserViewController {
     }
     
     func buildURL(){
-        let query:String = QueryBuilder.build(fromText: topView.searchTextField.text)
+        guard let constructor = queryConstructor else {return}
+        let matching = constructor.matching
+        let sortedBy = sortOrderConstructor.sortedBy
+        let orderBy = sortOrderConstructor.orderBy
+        let endpoint = Endpoint.search(matching: matching, sortedBy: sortedBy, orderBy: orderBy)
+        
+//        let url = endpoint.url
+//    }
     }
 }
-
 extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -138,7 +163,9 @@ extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDat
             }
         }
         return 0
+        
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        // if indexPath.count == 0 {
@@ -191,14 +218,16 @@ extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDat
         return 1
     }
 }
+    
 
 extension RepositoriesBrowserViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+        buildURL()
         textField.resignFirstResponder()
         return true
     }
 }
+
 
 
 

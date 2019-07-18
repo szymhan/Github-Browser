@@ -52,7 +52,6 @@
 		A02002CC22DF38E70063369C /* UITextField_+_disableAutoTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002CB22DF38E70063369C /* UITextField_+_disableAutoTypes.swift */; };
 		A02002CE22DFB0160063369C /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002CD22DFB0160063369C /* DataLoader.swift */; };
 		A02002D022DFB03E0063369C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002CF22DFB03E0063369C /* Endpoint.swift */; };
-		A02002D222DFC0B70063369C /* SHDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002D122DFC0B70063369C /* SHDropDown.swift */; };
 		A02002D422DFC1070063369C /* SHTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002D322DFC1070063369C /* SHTextField.swift */; };
 		A02002D622DFC23C0063369C /* SHCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002D522DFC23C0063369C /* SHCheckBox.swift */; };
 		A02002D822DFC4540063369C /* SHMainSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002D722DFC4540063369C /* SHMainSearchTextField.swift */; };
@@ -134,7 +133,6 @@
 		A02002CB22DF38E70063369C /* UITextField_+_disableAutoTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField_+_disableAutoTypes.swift"; sourceTree = "<group>"; };
 		A02002CD22DFB0160063369C /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		A02002CF22DFB03E0063369C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		A02002D122DFC0B70063369C /* SHDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHDropDown.swift; sourceTree = "<group>"; };
 		A02002D322DFC1070063369C /* SHTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTextField.swift; sourceTree = "<group>"; };
 		A02002D522DFC23C0063369C /* SHCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCheckBox.swift; sourceTree = "<group>"; };
 		A02002D722DFC4540063369C /* SHMainSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHMainSearchTextField.swift; sourceTree = "<group>"; };
@@ -312,7 +310,6 @@
 				A020028522DBDC930063369C /* SHButton.swift */,
 				A020028B22DC62F10063369C /* CheckBox.swift */,
 				A020028D22DC8E490063369C /* SortOptions.swift */,
-				A02002D122DFC0B70063369C /* SHDropDown.swift */,
 				A02002C922DF37C60063369C /* SHSearchTextField.swift */,
 				A02002D322DFC1070063369C /* SHTextField.swift */,
 				A02002D522DFC23C0063369C /* SHCheckBox.swift */,
@@ -636,7 +633,6 @@
 				A020027B22DBB5350063369C /* UISearchTextfield_+_customization.swift in Sources */,
 				A02002AB22DDBC7D0063369C /* Repository.swift in Sources */,
 				A02002C222DE414A0063369C /* RepositoriesTableViewCell.swift in Sources */,
-				A02002D222DFC0B70063369C /* SHDropDown.swift in Sources */,
 				A020027922DBB5060063369C /* UIView_+_autolayout_+_bottomBorder.swift in Sources */,
 				A020027422DBB25D0063369C /* SHTopView.swift in Sources */,
 				A020026D22DBB1E30063369C /* SingleRepositoryTableViewCell.swift in Sources */,

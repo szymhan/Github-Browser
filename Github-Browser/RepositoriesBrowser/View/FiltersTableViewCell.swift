@@ -81,15 +81,15 @@ class FiltersTableViewCell: UITableViewCell {
         //adding white bottom border to the field
         tf.addBottomBorder(color: .black, margins: 0, borderLineSize: 0.5)
         //maximum number of shown hints
-        tf.maxNumberOfResults       = 5
+        tf.maxNumberOfResults   = 5
         //creating maginfier icon for textField leftView
-        tf.startVisible             = true
+        tf.startVisible         = true
         tf.disableAutoTypes()
         return tf
     }()
     
-    let sortDropDown: SHDropDown = {
-        let dd = SHDropDown(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
+    let sortDropDown: DropDown = {
+        let dd = DropDown(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
         dd.font = UIFont.init(font: .robotoLightItalic, size: 12)
         dd.optionArray      = SortOptions.allCases()
         dd.selectedIndex    = 0
@@ -97,7 +97,7 @@ class FiltersTableViewCell: UITableViewCell {
         dd.borderWidth      = 0.1
         dd.isSearchEnable   = false
         dd.selectedRowColor = .white
-        dd.insertText("default: Best match")
+        dd.insertText("Best match")
         return dd
     }()
     
@@ -126,9 +126,9 @@ class FiltersTableViewCell: UITableViewCell {
     }
     
     fileprivate func loadPlist() {
-        PlistManager.shared.getDictionaryFrom("languages") { (result, err) in
+        PlistManager.shared.getDictionaryFrom("Languages") { (result, err) in
             if err != nil {
-                print(err.debugDescription)
+                print("\(err.debugDescription) for Languages.plist")
                 languageTextField.filterStrings([])
                 return
             }
@@ -172,7 +172,7 @@ class FiltersTableViewCell: UITableViewCell {
 
         sortDropDown.snp.makeConstraints { (make) in
             make.left.width.equalTo(authorTextField)
-            make.height.equalTo(25)
+            make.height.equalTo(30)
             make.centerY.equalTo(sortByLabel.snp_centerY).labeled("sort dropdown Xcentered to label")
         }
 

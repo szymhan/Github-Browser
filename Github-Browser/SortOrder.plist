@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Best Match</string>
+		<key>order</key>
+		<string>desc</string>
+		<key>sort</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Most Forks</string>
+		<key>order</key>
+		<string>desc</string>
+		<key>sort</key>
+		<string>forks</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Fewest Forks</string>
+		<key>sort</key>
+		<string>forks</string>
+		<key>order</key>
+		<string>asc</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Most Stars</string>
+		<key>sort</key>
+		<string>stars</string>
+		<key>order</key>
+		<string>desc</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Fewest Stars</string>
+		<key>sort</key>
+		<string>stars</string>
+		<key>order</key>
+		<string>asc</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Recently Updated</string>
+		<key>sort</key>
+		<string>updated</string>
+		<key>order</key>
+		<string>desc</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Least Recently Updated</string>
+		<key>sort</key>
+		<string>updated</string>
+		<key>order</key>
+		<string>asc</string>
+	</dict>
+</array>
+</plist>

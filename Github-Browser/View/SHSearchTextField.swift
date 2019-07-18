@@ -13,9 +13,12 @@ class SHSearchTextField: SearchTextField,QueryElementDelegate {
     
     func returnContent() -> String? {
         if let text = self.text{
+            if text == "" {
+                return nil
+            }
         return text
         } else {
-            return ""
+            return nil
         }
     }
     
