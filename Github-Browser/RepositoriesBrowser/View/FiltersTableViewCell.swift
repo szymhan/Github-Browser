@@ -119,6 +119,22 @@ class FiltersTableViewCell: UITableViewCell {
         self.addSubview(readmeLabel)
         self.addSubview(readmeCheckbox)
         setUI()
+        loadPlist()
+    }
+    
+    fileprivate func loadPlist() {
+        PlistManager.shared.getDictionaryFrom("languages") { (result, err) in
+            if err != nil {
+                print(err.debugDescription)
+                languageTextField.filterStrings([])
+                return
+            }
+            guard let languagesArray = result?.allKeys else {
+                languageTextField.filterStrings([])
+                return
+            }
+            languageTextField.filterStrings(languagesArray as! [String])
+        }
     }
     
     func setUI() {
