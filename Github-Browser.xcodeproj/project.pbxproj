@@ -45,7 +45,7 @@
 		A02002B822DE09170063369C /* InBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002B722DE09170063369C /* InBuilder.swift */; };
 		A02002C022DE3EA00063369C /* FiltersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002BF22DE3EA00063369C /* FiltersTableViewCell.swift */; };
 		A02002C222DE414A0063369C /* RepositoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002C122DE414A0063369C /* RepositoriesTableViewCell.swift */; };
-		A02002C422DE77D20063369C /* languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = A02002C322DE77D20063369C /* languages.plist */; };
+		A02002C422DE77D20063369C /* Languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = A02002C322DE77D20063369C /* Languages.plist */; };
 		A02002C622DEFFDC0063369C /* UIImageView_+_maskCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002C522DEFFDC0063369C /* UIImageView_+_maskCircle.swift */; };
 		A02002C822DF04B20063369C /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002C722DF04B20063369C /* PlistManager.swift */; };
 		A02002CA22DF37C60063369C /* SHSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002C922DF37C60063369C /* SHSearchTextField.swift */; };
@@ -56,6 +56,7 @@
 		A02002D422DFC1070063369C /* SHTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002D322DFC1070063369C /* SHTextField.swift */; };
 		A02002D622DFC23C0063369C /* SHCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002D522DFC23C0063369C /* SHCheckBox.swift */; };
 		A02002D822DFC4540063369C /* SHMainSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002D722DFC4540063369C /* SHMainSearchTextField.swift */; };
+		A02002DA22E059970063369C /* SortOrder.plist in Resources */ = {isa = PBXBuildFile; fileRef = A02002D922E059970063369C /* SortOrder.plist */; };
 		DBE0EB5337F9063B56373412 /* Pods_Github_BrowserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8637AF42C944CC2601D8398F /* Pods_Github_BrowserTests.framework */; };
 		EF42B5E54FA8B304ECEDF256 /* Pods_Github_BrowserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6831333EF04F715B07A7C1FA /* Pods_Github_BrowserUITests.framework */; };
 /* End PBXBuildFile section */
@@ -126,7 +127,7 @@
 		A02002B722DE09170063369C /* InBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InBuilder.swift; sourceTree = "<group>"; };
 		A02002BF22DE3EA00063369C /* FiltersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewCell.swift; sourceTree = "<group>"; };
 		A02002C122DE414A0063369C /* RepositoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewCell.swift; sourceTree = "<group>"; };
-		A02002C322DE77D20063369C /* languages.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = languages.plist; sourceTree = "<group>"; };
+		A02002C322DE77D20063369C /* Languages.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Languages.plist; sourceTree = "<group>"; };
 		A02002C522DEFFDC0063369C /* UIImageView_+_maskCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView_+_maskCircle.swift"; sourceTree = "<group>"; };
 		A02002C722DF04B20063369C /* PlistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		A02002C922DF37C60063369C /* SHSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSearchTextField.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		A02002D322DFC1070063369C /* SHTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTextField.swift; sourceTree = "<group>"; };
 		A02002D522DFC23C0063369C /* SHCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHCheckBox.swift; sourceTree = "<group>"; };
 		A02002D722DFC4540063369C /* SHMainSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHMainSearchTextField.swift; sourceTree = "<group>"; };
+		A02002D922E059970063369C /* SortOrder.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SortOrder.plist; sourceTree = "<group>"; };
 		B41AB0C80CEBA83F59FEB689 /* Pods-Github-BrowserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserTests.debug.xcconfig"; path = "Target Support Files/Pods-Github-BrowserTests/Pods-Github-BrowserTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDF69ADE09F1691366F72C00 /* Pods-Github-Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-Browser.release.xcconfig"; path = "Target Support Files/Pods-Github-Browser/Pods-Github-Browser.release.xcconfig"; sourceTree = "<group>"; };
 		D7D537EB6F9B3460633513CB /* Pods-Github-BrowserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserUITests.release.xcconfig"; path = "Target Support Files/Pods-Github-BrowserUITests/Pods-Github-BrowserUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,7 +232,8 @@
 				A020023E22DBAC700063369C /* Assets.xcassets */,
 				A020024022DBAC700063369C /* LaunchScreen.storyboard */,
 				A020024322DBAC700063369C /* Info.plist */,
-				A02002C322DE77D20063369C /* languages.plist */,
+				A02002C322DE77D20063369C /* Languages.plist */,
+				A02002D922E059970063369C /* SortOrder.plist */,
 				A020023B22DBAC6F0063369C /* Github_Browser.xcdatamodeld */,
 			);
 			path = "Github-Browser";
@@ -484,11 +487,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A02002C422DE77D20063369C /* languages.plist in Resources */,
+				A02002C422DE77D20063369C /* Languages.plist in Resources */,
 				A020024222DBAC700063369C /* LaunchScreen.storyboard in Resources */,
 				A020023F22DBAC700063369C /* Assets.xcassets in Resources */,
 				A020029222DCECDD0063369C /* HelveticaNeue-Bold.ttf in Resources */,
 				A020028222DBB6250063369C /* Roboto-Bold.ttf in Resources */,
+				A02002DA22E059970063369C /* SortOrder.plist in Resources */,
 				A020028122DBB6250063369C /* Roboto-LightItalic.ttf in Resources */,
 				A020028022DBB6250063369C /* Roboto-Regular.ttf in Resources */,
 				A020029422DCED710063369C /* HelveticaNeue-Regular.ttf in Resources */,
