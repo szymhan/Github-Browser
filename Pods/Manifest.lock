@@ -1,12 +1,14 @@
 PODS:
   - DynamicButton (6.2.0)
   - iOSDropDown (0.3.4)
+  - Promis (2.2.0)
   - SearchTextField (1.2.2)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - DynamicButton
   - iOSDropDown
+  - Promis
   - SearchTextField
   - SnapKit (~> 4.0)
 
@@ -14,15 +16,17 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DynamicButton
     - iOSDropDown
+    - Promis
     - SearchTextField
     - SnapKit
 
 SPEC CHECKSUMS:
   DynamicButton: 99858ce823ceed7263a4eed43bd3870e72723cb2
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
+  Promis: 4b7c710108427d361e29a2be352dc0eff5315456
   SearchTextField: a0992739d4b05dcbb40fb3a5cc6526bd991bdd23
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 681efd9a7449b515f91d9b6f525a4a96ea2184b3
+PODFILE CHECKSUM: 5a189a3d9effdbcdbe74fa9f238179fee89d28aa
 
 COCOAPODS: 1.6.1
