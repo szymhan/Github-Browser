@@ -11,6 +11,7 @@ pod 'SnapKit', '~> 4.0'
 pod "DynamicButton"
 pod 'iOSDropDown'
 pod 'Promis'
+pod 'MKProgress'
 
   target 'Github-BrowserTests' do
     inherit! :search_paths

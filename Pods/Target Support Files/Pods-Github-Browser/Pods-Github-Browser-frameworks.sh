@@ -154,6 +154,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/DynamicButton/DynamicButton.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MKProgress/MKProgress.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Promis/Promis.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
@@ -161,6 +162,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/DynamicButton/DynamicButton.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MKProgress/MKProgress.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Promis/Promis.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
