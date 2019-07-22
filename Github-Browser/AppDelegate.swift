@@ -14,15 +14,18 @@ import MKProgress
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navigationController:UINavigationController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let controller = RepositoriesBrowserViewController()
+        navigationController = UINavigationController()
+        let mainController = RepositoriesBrowserViewController()
         
+        navigationController?.pushViewController(mainController, animated: false)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = controller
+        window?.rootViewController = navigationController
         
         // Override point for customization after application launch.
         return true
