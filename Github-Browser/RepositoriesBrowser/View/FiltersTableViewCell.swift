@@ -101,6 +101,15 @@ class FiltersTableViewCell: UITableViewCell {
         return dd
     }()
     
+    // MARK: VIEWS
+    let searchIcon: UIButton = {
+        let si = UIButton()
+        si.translatesAutoresizingMaskIntoConstraints = false
+        si.setImage(UIImage(named: "blue_search"), for: UIControl.State.normal)
+        
+        return si
+    }()
+    
     //MARK: VARIABLES
     
     let isExpanded:Bool = false
@@ -121,6 +130,7 @@ class FiltersTableViewCell: UITableViewCell {
         self.addSubview(descriptionCheckBox)
         self.addSubview(readmeLabel)
         self.addSubview(readmeCheckbox)
+        self.addSubview(searchIcon)
         setUI()
         loadPlist()
     }
@@ -214,6 +224,12 @@ class FiltersTableViewCell: UITableViewCell {
             make.left.equalTo(readmeLabel.snp_right).offset(5)
             make.centerY.equalTo(readmeLabel.snp_centerY)
             make.width.height.equalTo(15)
+        }
+        
+        searchIcon.snp.makeConstraints { (make) in
+            make.height.width.equalTo(25)
+            make.bottom.equalTo(self).offset(-5)
+            make.right.equalTo(self).offset(-20)
         }
     }
 
