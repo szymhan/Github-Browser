@@ -47,7 +47,6 @@
 		A02002B222DDEA320063369C /* JSONSchemaSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002B122DDEA320063369C /* JSONSchemaSupport.swift */; };
 		A02002B422DE01F40063369C /* QueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002B322DE01F40063369C /* QueryBuilder.swift */; };
 		A02002B622DE05DC0063369C /* SortOrderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002B522DE05DC0063369C /* SortOrderBuilder.swift */; };
-		A02002B822DE09170063369C /* InBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002B722DE09170063369C /* InBuilder.swift */; };
 		A02002C022DE3EA00063369C /* FiltersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002BF22DE3EA00063369C /* FiltersTableViewCell.swift */; };
 		A02002C422DE77D20063369C /* Languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = A02002C322DE77D20063369C /* Languages.plist */; };
 		A02002C622DEFFDC0063369C /* UIImageView_+_maskCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02002C522DEFFDC0063369C /* UIImageView_+_maskCircle.swift */; };
@@ -132,7 +131,6 @@
 		A02002B122DDEA320063369C /* JSONSchemaSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSchemaSupport.swift; sourceTree = "<group>"; };
 		A02002B322DE01F40063369C /* QueryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryBuilder.swift; sourceTree = "<group>"; };
 		A02002B522DE05DC0063369C /* SortOrderBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrderBuilder.swift; sourceTree = "<group>"; };
-		A02002B722DE09170063369C /* InBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InBuilder.swift; sourceTree = "<group>"; };
 		A02002BF22DE3EA00063369C /* FiltersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewCell.swift; sourceTree = "<group>"; };
 		A02002C322DE77D20063369C /* Languages.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Languages.plist; sourceTree = "<group>"; };
 		A02002C522DEFFDC0063369C /* UIImageView_+_maskCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView_+_maskCircle.swift"; sourceTree = "<group>"; };
@@ -382,7 +380,6 @@
 				A02002B122DDEA320063369C /* JSONSchemaSupport.swift */,
 				A02002B322DE01F40063369C /* QueryBuilder.swift */,
 				A02002B522DE05DC0063369C /* SortOrderBuilder.swift */,
-				A02002B722DE09170063369C /* InBuilder.swift */,
 				A02002C722DF04B20063369C /* PlistManager.swift */,
 			);
 			path = Helpers;
@@ -656,7 +653,6 @@
 				A02002B422DE01F40063369C /* QueryBuilder.swift in Sources */,
 				A01936D222E23AA900D4D105 /* License.swift in Sources */,
 				A02002CA22DF37C60063369C /* SHSearchTextField.swift in Sources */,
-				A02002B822DE09170063369C /* InBuilder.swift in Sources */,
 				A02002C022DE3EA00063369C /* FiltersTableViewCell.swift in Sources */,
 				A020023522DBAC6F0063369C /* AppDelegate.swift in Sources */,
 				A02002CE22DFB0160063369C /* DataLoader.swift in Sources */,
