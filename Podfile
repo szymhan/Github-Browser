@@ -13,6 +13,7 @@ pod 'iOSDropDown'
 pod 'Promis'
 pod 'MKProgress'
 pod "MarkdownKit"
+pod 'RevealingSplashView'
 
   target 'Github-BrowserTests' do
     inherit! :search_paths

@@ -4,6 +4,7 @@ PODS:
   - MarkdownKit (1.5)
   - MKProgress (1.1.0)
   - Promis (2.2.0)
+  - RevealingSplashView (0.6.0)
   - SearchTextField (1.2.2)
   - SnapKit (4.2.0)
 
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - MarkdownKit
   - MKProgress
   - Promis
+  - RevealingSplashView
   - SearchTextField
   - SnapKit (~> 4.0)
 
@@ -23,6 +25,7 @@ SPEC REPOS:
     - MarkdownKit
     - MKProgress
     - Promis
+    - RevealingSplashView
     - SearchTextField
     - SnapKit
 
@@ -32,9 +35,10 @@ SPEC CHECKSUMS:
   MarkdownKit: 379028e9cd3ebf05ccac87205cd9aead446159d4
   MKProgress: 260d166200323f3d991190a73ab2dc3a04b0f52f
   Promis: 4b7c710108427d361e29a2be352dc0eff5315456
+  RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
   SearchTextField: a0992739d4b05dcbb40fb3a5cc6526bd991bdd23
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 5d7f919ff92ee4aeb3e8211695991a534c1272c8
+PODFILE CHECKSUM: 4c508e685bb9b69efa6419af3545f8dd29b6ed71
 
 COCOAPODS: 1.6.1
