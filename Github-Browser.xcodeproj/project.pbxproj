@@ -243,6 +243,7 @@
 		A020023322DBAC6F0063369C /* Github-Browser */ = {
 			isa = PBXGroup;
 			children = (
+				A020023422DBAC6F0063369C /* AppDelegate.swift */,
 				A020028722DBDD320063369C /* Protocols.swift */,
 				A020027522DBB4AF0063369C /* Extensions */,
 				A020027C22DBB6250063369C /* Fonts */,
@@ -252,7 +253,6 @@
 				A020027022DBB2230063369C /* View */,
 				A020026522DBB1420063369C /* RepositoriesBrowser */,
 				A01936D722E4F32E00D4D105 /* SingleRepositoryViewer */,
-				A020023422DBAC6F0063369C /* AppDelegate.swift */,
 				A020024322DBAC700063369C /* Info.plist */,
 				A020023E22DBAC700063369C /* Assets.xcassets */,
 				A020024022DBAC700063369C /* LaunchScreen.storyboard */,
@@ -555,6 +555,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Github-Browser/Pods-Github-Browser-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DynamicButton/DynamicButton.framework",
 				"${BUILT_PRODUCTS_DIR}/MKProgress/MKProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownKit/MarkdownKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Promis/Promis.framework",
 				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -566,6 +567,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MKProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promis.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",

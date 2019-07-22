@@ -12,6 +12,7 @@ pod "DynamicButton"
 pod 'iOSDropDown'
 pod 'Promis'
 pod 'MKProgress'
+pod "MarkdownKit"
 
   target 'Github-BrowserTests' do
     inherit! :search_paths
