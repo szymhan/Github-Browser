@@ -114,5 +114,15 @@ class DataLoader {
         return promise.future
     }
     
+    func getReadme(repoName: String, ownerName: String) {
+        let source = "https://raw.githubusercontent.com/\(ownerName)/\(repoName)/master/README.md"
+        guard let url = URL(string: source) else {return}
+        let data = try? Data(contentsOf: url)//make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        if let textData = data, let readmeString = String(data: textData, encoding: .utf8) {
+            print (readmeString)
+            
+        }
+    }
+    
 }
 
