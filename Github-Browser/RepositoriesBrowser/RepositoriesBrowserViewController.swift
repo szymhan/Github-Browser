@@ -52,7 +52,7 @@ class RepositoriesBrowserViewController: UIViewController {
       let fc = FiltersTableViewCell(style: .subtitle, reuseIdentifier: "filters_identifier")
         return fc
     }()
-
+ 
     
     //MARK: VIEWMODEL
     var viewModel: RepositoriesViewModel? {
@@ -167,11 +167,24 @@ class RepositoriesBrowserViewController: UIViewController {
         let viewTapGestureRec = UITapGestureRecognizer(target: self, action: #selector(handleViewTap))
         //this line is important
         viewTapGestureRec.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(viewTapGestureRec)
+        self.topView.addGestureRecognizer(viewTapGestureRec)
+        self.filterTableView.addGestureRecognizer(viewTapGestureRec)
+        self.repositoriesTableView.addGestureRecognizer(viewTapGestureRec)
+        
+        filtersCell.searchIcon.addTarget(self, action: #selector(handle), for: .touchUpInside)
     }
+    
+    @objc func handle() {
+        repositoriesTableView.reloadData()
+    }
+    
+    
     
     @objc func handleViewTap() {
         topView.searchTextField.resignFirstResponder()
+        filtersCell.authorTextField.resignFirstResponder()
+        filtersCell.languageTextField.resignFirstResponder()
+        
     }
     
     
