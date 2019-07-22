@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Struct responsible for building sort & order part of endpoint (for example "&sort=best_match&order=desc")
 struct SortOrderConstructor {
     private var options:NSArray?
     var selectedSortOrder:String
@@ -40,8 +41,11 @@ extension SortOrderConstructor {
     //
     private func searchInDictionary(for key:String) -> String {
         for dictionary in options!{
+            //if dictionary is of NSDictionary type and it has "name" key
             if let dict = dictionary as? NSDictionary, let name = dict["name"] as? String{
+                //if it's the dictionary, that contains the selectedSortOrder name that we're looking for (passed when initialized)
                 if name == selectedSortOrder {
+                    // return the value of the key passed as an argument
                     if let sort = dict[key] as? String {
                         return sort
                     }

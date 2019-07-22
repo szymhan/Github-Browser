@@ -10,7 +10,7 @@
 
 import Foundation
 
-
+//Builder used to assign UI elements to QueryConstructor in a readable way
 class QueryConstructorBuilder{
     var attributes = [String?:[QueryElementDelegate]]()
     
@@ -50,7 +50,7 @@ struct QueryConstructor {
 
 extension QueryConstructor {
     //
-    //function returning
+    //function returning query string, ready to assign to URL component (for example "facebook+language:C+in:name+in:description")
     //
     var matching:String {
         var matchingString = ""
@@ -61,24 +61,8 @@ extension QueryConstructor {
                 } else if let elementContent = element.returnContent() {
                     matchingString.append("\(elementContent)+")
                 }
-               //matchingString.append("+")
             }
-           // matchingString.append("+")
         }
         return matchingString
     }
 }
-
-//
-//    static let emptyString = ""
-//
-//    func build(_ text: String, authorName: String, language: String, searchIn: String, completion: (String?, QueryBuildingError) -> (Void)) {
-//        var queryString:String = ""
-//        if text != .emptyString{
-//            queryString.append(text)
-//        }
-//
-//        if queryString == .emptyString {
-//            completion(nil,.emptyFields)
-//        }
-//    }

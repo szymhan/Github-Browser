@@ -61,6 +61,8 @@ class RepositoriesBrowserViewController: UIViewController {
         }
     }
     //MARK: VARIABLES
+    var pagesLoaded:Int = 1
+    var actualEndpoint:Endpoint?
     var isFiltersCellExpanded:Bool = true
     var expandedFiltersView:ExpandedViewOption = .hidden {
         didSet {
@@ -202,14 +204,16 @@ extension RepositoriesBrowserViewController {
         repositoriesTableView.reloadData()
     }
     
-    func handleDataLoading() {
+    func handleDataInitialLoading() {
+        pagesLoaded = 1
         MKProgress.show()
-        guard let endpoint = buildURL()?.url else {
+        guard let endpoint = buildURL(), let endpointURL = endpoint.url else {
             showAlert(title: self.loadingFailed, message: self.tryAgain, actionLabel: "OK")
             return
         }
+        actualEndpoint = endpoint
         
-        dataLoader.handleDataLoading(url: endpoint) { (viewModel, error) in
+        dataLoader.handleDataLoading(url: endpointURL) { (viewModel, error) in
             MKProgress.hide()
             switch (viewModel, error) {
             case (let newVM, nil) :
@@ -222,13 +226,34 @@ extension RepositoriesBrowserViewController {
         }
     }
     
+    func handleDataAdding() {
+        guard let endpointURL = actualEndpoint?.url else {return}
+        
+        dataLoader.handleDataLoading(url: endpointURL) { (viewModel, error) in
+            switch (viewModel, error) {
+            case (let newVM, nil) :
+                self.addNewRepositoriesToViewModel(from: newVM)
+            default:
+                print("Process of adding data finished")
+                
+            }
+        }
+    }
+    
+    private func addNewRepositoriesToViewModel (from newViewModel: RepositoriesViewModel?) {
+        guard let newVM  = newViewModel else {return}
+        let repositories = newVM.repositories
+        self.viewModel?.repositories.append(contentsOf: repositories)
+        handleTableViewDataReloading()
+    }
+    
     //builds Endpoint out of all UI elements
     func buildURL() -> Endpoint?{
         guard let constructor = queryConstructor else {return nil}
         let matching    = constructor.matching
         let sortedBy    = sortOrderConstructor.sortedBy
         let orderBy     = sortOrderConstructor.orderBy
-        let endpoint    = Endpoint.search(matching: matching, sortedBy: sortedBy, orderBy: orderBy)
+        let endpoint    = Endpoint.search(matching: matching, sortedBy: sortedBy, orderBy: orderBy, page: pagesLoaded)
         return endpoint 
     }
     
@@ -320,6 +345,16 @@ extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDat
         return 30
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard viewModel != nil else {return}
+        //check if this is the last cell
+        if isMoreToLoad(row: indexPath.row) {
+            pagesLoaded += 1
+            actualEndpoint?.changePage(page: pagesLoaded)
+            handleDataAdding()
+        }
+    }
+    
     @objc func handleExpandHide() {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
@@ -339,6 +374,16 @@ extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDat
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    private func isMoreToLoad(row: Int) -> Bool {
+        if row == (viewModel!.repositories.count - 1) {
+            // check if there is anything left to load
+            if (viewModel!.totalCount - viewModel!.repositories.count) > 0 {
+                return true
+            }
+        }
+        return false
+    }
 }
 
 extension RepositoriesBrowserViewController: UITextFieldDelegate {
@@ -349,7 +394,7 @@ extension RepositoriesBrowserViewController: UITextFieldDelegate {
             viewModel.totalCount = 0
             repositoriesTableView.reloadData()
         }
-        handleDataLoading()
+        handleDataInitialLoading()
         return true
     }
 }

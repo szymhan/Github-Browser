@@ -69,7 +69,7 @@ extension SingleRepositoryViewController {
     
     private func makeBackButton() -> UIButton {
         let backButton = UIButton(type: .custom)
-        backButton.tintColor = .lighteriPhoneBlue
+        backButton.tintColor = .iphoneBlue
         backButton.setTitle("Back", for: .normal)
         backButton.setTitleColor(.iphoneBlue, for: .normal)
         backButton.addTarget(self, action: #selector(self.backButtonPressed), for: .touchUpInside)
