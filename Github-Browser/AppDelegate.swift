@@ -9,12 +9,17 @@
 import UIKit
 import CoreData
 import MKProgress
+import RevealingSplashView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController:UINavigationController?
+    
+    let logo = UIImage(named: "icon")
+    
+    let splashView = RevealingSplashView(iconImage: UIImage(named: "icon")!, iconInitialSize: CGSize(width: UIScreen.main.bounds.size.width*0.3, height: UIScreen.main.bounds.size.width*0.3), backgroundColor: .white)
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -26,6 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = navigationController
+        
+        splashView.animationType = .woobleAndZoomOut
+        window?.addSubview(splashView)
+        
+        splashView.startAnimation()
         
         // Override point for customization after application launch.
         return true
