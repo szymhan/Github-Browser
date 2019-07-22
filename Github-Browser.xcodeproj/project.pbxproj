@@ -248,6 +248,7 @@
 				A020027C22DBB6250063369C /* Fonts */,
 				A02002B022DDEA0D0063369C /* Helpers */,
 				A02002A622DDBC030063369C /* Model */,
+				A02002A122DD22540063369C /* Services */,
 				A020027022DBB2230063369C /* View */,
 				A020026522DBB1420063369C /* RepositoriesBrowser */,
 				A01936D722E4F32E00D4D105 /* SingleRepositoryViewer */,
@@ -283,7 +284,6 @@
 		A020026522DBB1420063369C /* RepositoriesBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				A02002A122DD22540063369C /* Services */,
 				A020026A22DBB1B20063369C /* ViewModel */,
 				A020026822DBB1A60063369C /* View */,
 				A020026622DBB1780063369C /* RepositoriesBrowserViewController.swift */,

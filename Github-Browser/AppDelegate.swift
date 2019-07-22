@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import MKProgress
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         return true
+    }
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        //customizing Progress HUD
+        customizeMKProgressHUD()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -95,6 +101,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    func customizeMKProgressHUD() {
+        MKProgress.config.hudType = .activityIndicator
+        MKProgress.config.width = 32.0
+        MKProgress.config.height = 32.0
+        MKProgress.config.hudColor = .white
+        MKProgress.config.backgroundColor = UIColor(white: 0, alpha: 0.55)
+        MKProgress.config.cornerRadius = 16.0
+        MKProgress.config.fadeInAnimationDuration = 0.2
+        MKProgress.config.fadeOutAnimationDuration = 0.35
+        MKProgress.config.hudYOffset = 15
+        
+        MKProgress.config.circleRadius = 40.0
+        MKProgress.config.circleBorderWidth = 2.0
+        MKProgress.config.circleBorderColor = .darkGray
+        MKProgress.config.circleAnimationDuration = 0.9
+        MKProgress.config.circleArcPercentage = 0.85
+        MKProgress.config.logoImage = nil
+        
+        MKProgress.config.activityIndicatorStyle = .whiteLarge
+        MKProgress.config.activityIndicatorColor = .black
+        MKProgress.config.preferredStatusBarStyle = .lightContent
+        MKProgress.config.prefersStatusBarHidden = false
+    }
 }
 
