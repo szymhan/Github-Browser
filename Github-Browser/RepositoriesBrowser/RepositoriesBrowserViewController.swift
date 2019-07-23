@@ -62,6 +62,7 @@ class RepositoriesBrowserViewController: UIViewController {
     }
     //MARK: VARIABLES
     var pagesLoaded:Int = 1
+     private var feedbackGenerator: UIImpactFeedbackGenerator?
     var actualEndpoint:Endpoint?
     var isFiltersCellExpanded:Bool = true
     var expandedFiltersView:ExpandedViewOption = .hidden {
@@ -261,6 +262,12 @@ extension RepositoriesBrowserViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func makeHapticImpact() {
+        feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+        feedbackGenerator?.prepare()
+        feedbackGenerator?.impactOccurred()
+    }
 }
 
 
@@ -331,6 +338,7 @@ extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == repositoriesTableView {
+            makeHapticImpact()
             let singleViewModel = viewModel?.repositories[indexPath.row]
             let srvc = SingleRepositoryViewController()
             srvc.viewModel = singleViewModel
