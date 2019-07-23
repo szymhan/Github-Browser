@@ -94,6 +94,7 @@ class RepositoriesBrowserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        self.hideKeyboardWhenTappedAround()
         self.navigationController?.isNavigationBarHidden = true
         self.view.addSubview(topView)
         self.view.addSubview(filterTableView)
