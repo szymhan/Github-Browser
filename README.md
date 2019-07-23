@@ -5,7 +5,7 @@
 
 RepoBrowser is an app, that allows you to briefly search through all repositories on GitHub using main search field and other filters. By choosing one, you can see more details, copy address to clipboard and read the simplified version of readme.md.
 
-![](snap.gif)
+![](screen_recording.gif)
 
 ## Features
 
