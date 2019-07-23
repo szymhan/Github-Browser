@@ -202,6 +202,7 @@ extension RepositoriesBrowserViewController {
     func handleDataInitialLoading() {
         pagesLoaded = 1
         MKProgress.show()
+        let query = topView.searchTextField.text
         guard let endpoint = buildURL(), let endpointURL = endpoint.url else {
             showAlert(title: self.loadingFailed, message: self.tryAgain, actionLabel: "OK")
             return
@@ -212,6 +213,7 @@ extension RepositoriesBrowserViewController {
             MKProgress.hide()
             switch (viewModel, error) {
             case (let newVM, nil) :
+                newVM?.query = query
                 self.viewModel = newVM
             case ( nil , _):
                 self.showAlert(title: self.errorWhileLoading, message: self.checkConnection, actionLabel: self.close)
@@ -342,7 +344,7 @@ extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard viewModel != nil else {return}
-        //check if this is the last cell
+        //check if this is the last cell that will be displayed
         if isMoreToLoad(row: indexPath.row) {
             pagesLoaded += 1
             actualEndpoint?.changePage(page: pagesLoaded)
@@ -386,6 +388,7 @@ extension RepositoriesBrowserViewController: UITextFieldDelegate {
         saveSearch()
         handleDataLoading()
         topView.searchTextField.hideResultsList()
+        topView.searchTextField.resignFirstResponder()
         topView.searchTextField.text = ""
         return true
     }

@@ -13,7 +13,6 @@ protocol RepositoriesViewModelProtocol {
     var totalCount:Int { get }
     
     var repositories: [RepositoryViewModel] { get }
-    var idImageDictionary: [Int : UIImage] {get}
     func sectionHeader() -> String
     func downloadAvatars()
 }
@@ -23,7 +22,8 @@ class RepositoriesViewModel: NSObject,RepositoriesViewModelProtocol {
     var totalCount: Int
     
     var repositories: [RepositoryViewModel] = []
-    internal var idImageDictionary: [Int: UIImage] = [:]
+    
+    var query: String?
     
     init?(response: RawServerResponse) {
         guard let tc    = response.totalCount else {return nil}
@@ -43,6 +43,9 @@ class RepositoriesViewModel: NSObject,RepositoriesViewModelProtocol {
     }
     
     func sectionHeader() -> String {
+        if query != ""{
+            return "\(totalCount) results for \(query!)"
+        }
         return "\(totalCount) results"
     }
 }
