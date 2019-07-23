@@ -5,7 +5,7 @@
 
 RepoBrowser is an app, that allows you to briefly search through all repositories on GitHub using main search field and other filters. By choosing one, you can see more details, copy address to clipboard and read the simplified version of readme.md.
 
-![](snap.gif)
+![](screen_recording.gif)
 
 ## Features
 
@@ -15,14 +15,15 @@ RepoBrowser is an app, that allows you to briefly search through all repositorie
 - [x] Reading repository readme.md
 
 ## Other libraries used
-SnapKit                         - https://github.com/SnapKit/SnapKit
-SearchTextField by apasscon     - https://github.com/apasccon/SearchTextField
-iosDropDown by jriosdev         - https://github.com/jriosdev/iOSDropDown
-Promis by albertodebortoli      - https://github.com/albertodebortoli/Promis
-MKProgress by kamirana4         - https://github.com/kamirana4/MKProgress
-MarkDownKit by bmoliveira       - https://github.com/bmoliveira/MarkdownKit
-RevealingSplashView by PiXel16  - https://github.com/PiXeL16/RevealingSplashView
-SimpleCheckBox by BeauNouvelle  - https://github.com/BeauNouvelle/SimpleCheckbox
+SnapKit                         - https://github.com/SnapKit/SnapKit   
+SearchTextField by apasscon     - https://github.com/apasccon/SearchTextField   
+iosDropDown by jriosdev         - https://github.com/jriosdev/iOSDropDown 
+
+Promis by albertodebortoli      - https://github.com/albertodebortoli/Promis   
+MKProgress by kamirana4         - https://github.com/kamirana4/MKProgress  
+MarkDownKit by bmoliveira       - https://github.com/bmoliveira/MarkdownKit  
+RevealingSplashView by PiXel16  - https://github.com/PiXeL16/RevealingSplashView  
+SimpleCheckBox by BeauNouvelle  - https://github.com/BeauNouvelle/SimpleCheckbox  
 
 
 ## Meta
