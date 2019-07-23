@@ -9,6 +9,13 @@
 import SearchTextField
 
 class SHMainSearchTextField: SearchTextField,QueryElementDelegate {
+    var lastSearched: [String]? {
+        didSet {
+            self.filterStrings(lastSearched ?? [])
+        }
+    }
+    
+
     
     func returnContent() -> String? {
         if let text = self.text{

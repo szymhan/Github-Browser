@@ -10,6 +10,7 @@ import SearchTextField
 
 
 class SHSearchTextField: SearchTextField,QueryElementDelegate {
+
     
     func returnContent() -> String? {
         if let text = self.text{

@@ -97,13 +97,8 @@ class DataLoader {
         } catch {
             promise.setError(error)
         }
+        
         return promise.future
-//        return promise.future.onError {
-//            error in
-//            // handle/log error
-//            DispatchQueue.main.async {
-//                self.showAlert(title: "Eror while loading data from server", message: "Internal error occured", actionLabel: "Close")
-//            }
         }
     
     fileprivate func downloadAvatars(data:RepositoriesViewModel) -> Future<RepositoriesViewModel> {

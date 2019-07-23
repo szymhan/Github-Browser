@@ -100,8 +100,7 @@ class RepositoriesBrowserViewController: UIViewController {
         self.view.addSubview(filterTableView)
         self.view.addSubview(repositoriesTableView)
         fillUI()
-        //filterTableView.rowHeight = UITableView.automaticDimension
-        //filterTableView.estimatedRowHeight = UITableView.automaticDimension
+
         setDelegates()
         addGestureRecognizers()
     }
@@ -120,6 +119,7 @@ class RepositoriesBrowserViewController: UIViewController {
         filtersCell.sortDropDown.didSelect { (selectedText, _, _) in
             self.sortOrderConstructor = SortOrderConstructor(selectedText: selectedText)
         }
+        topView.searchTextField.lastSearched =  PersistentServiceHelper.fetchSearches()
     }
     
     func fillUI() {
@@ -175,14 +175,8 @@ class RepositoriesBrowserViewController: UIViewController {
         self.filterTableView.addGestureRecognizer(viewTapGestureRec)
         self.repositoriesTableView.addGestureRecognizer(viewTapGestureRec)
         
-        filtersCell.searchIcon.addTarget(self, action: #selector(handle), for: .touchUpInside)
+        filtersCell.searchIcon.addTarget(self, action: #selector(handleDataLoading), for: .touchUpInside)
     }
-    
-    @objc func handle() {
-        repositoriesTableView.reloadData()
-    }
-    
-    
     
     @objc func handleViewTap() {
         topView.searchTextField.resignFirstResponder()
@@ -389,13 +383,38 @@ extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDat
 
 extension RepositoriesBrowserViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        saveSearch()
+        handleDataLoading()
+        topView.searchTextField.hideResultsList()
+        topView.searchTextField.text = ""
+        return true
+    }
+    
+    fileprivate func saveSearch() {
+        
+        guard let searchText = topView.searchTextField.text, searchText != "" else {return}
+    
+        let search = Search(context: PersistenceService.context)
+        search.text = searchText
+        search.date = Date()
+        PersistenceService.saveContext()
+        topView.searchTextField.lastSearched =  PersistentServiceHelper.fetchSearches()
+    }
+    
+    @objc func handleDataLoading() {
+        guard let searchText = topView.searchTextField.text, searchText != "" else {
+            showAlert(title: "Empty field", message: "Please fill the search field", actionLabel: "OK")
+            return
+        }
+        
         if let viewModel = viewModel {
             viewModel.repositories.removeAll()
             viewModel.totalCount = 0
             repositoriesTableView.reloadData()
         }
         handleDataInitialLoading()
-        return true
+        
     }
 }
+
+

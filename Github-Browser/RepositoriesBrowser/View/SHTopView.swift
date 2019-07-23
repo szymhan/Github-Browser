@@ -23,8 +23,6 @@ class SHTopView: UIView {
         //textField.theme.bgColor = .black
         textField.backgroundColor = .lighteriPhoneBlue
         textField.layer.cornerRadius = 10
-        textField.filterStrings(["red","yellow"])
-        //creating header for the Last Searched hints
         textField.customHeaderwithText("Last Searched")
         textField.textColor     = .white
         textField.font          = UIFont.init(font: .robotoRegular, size: 16)
@@ -35,7 +33,8 @@ class SHTopView: UIView {
         textField.returnKeyType = UIReturnKeyType.go
         //startVisible=true allows to show last searched queries on field focus
         textField.startVisible  = true
-        textField.setMagnifierIcon()
+        textField.setLeftViewMagnifierIcon()
+        textField.minCharactersNumberToStartFiltering = 1
         return textField
     }()
     

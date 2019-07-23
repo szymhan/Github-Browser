@@ -18,7 +18,6 @@ class SHLabel: UILabel {
         self.font = UIFont.init(name: font.rawValue,size: size)
         self.lineBreakMode = .byTruncatingTail
         self.numberOfLines=0
-        self.adjustsFontSizeToFitWidth = true
         
     }
     

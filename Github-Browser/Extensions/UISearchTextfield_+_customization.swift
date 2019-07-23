@@ -11,7 +11,9 @@ import SearchTextField
 
 extension SearchTextField {
     
-    func setMagnifierIcon() {
+    
+    // SETTINH LEFT VIEW ICON WITH WHITE MAGNIFIER ICON
+    func setLeftViewMagnifierIcon() {
         let searchIcon:UIImageView = {
             let si = UIImageView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
             //si.translatesAutoresizingMaskIntoConstraints = false
@@ -24,6 +26,8 @@ extension SearchTextField {
         self.leftViewMode = .always
     }
     
+    
+    
     func customHeaderwithText(_ text:String) {
         let header = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 20))
         header.text = text
@@ -32,6 +36,7 @@ extension SearchTextField {
         self.resultsListHeader = header
     }
     
+
     func customAttributedPlaceholderWithFont(_ font: UIFont?, text:String, andFontColor fontColor: UIColor) {
         if let font = font {
         self.attributedPlaceholder = NSAttributedString(string: text,attributes: [NSAttributedString.Key.foregroundColor: fontColor, NSAttributedString.Key.font: font])
@@ -40,6 +45,8 @@ extension SearchTextField {
         }
     }
     
+    
+    // ADDING BOTTOM BORDER TO SEARCHFIELD
     static let padding = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 5)
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {

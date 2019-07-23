@@ -8,36 +8,6 @@
 
 import UIKit
 
-class LanguageColorDictionary {
-    
-    let dictionary: [String:Int]
-    init() {
-        dictionary = [
-            "Ruby": 0xff6b81,
-            "C": 0x2ed573,
-            "Shell":0xf35422,
-            "TypeScript":0x1e90ff,
-            "C#":0xffa502,
-            "C++":0x7bed9f,
-            "PHP":0x70a1ff,
-            "Python":0xff4757,
-            "Java":0x3742fa,
-            "JavaScript":0xeccc68,
-        ]
-    }
-}
-
-protocol LanguageColorDictionaryManager {
-    var dictionary: LanguageColorDictionary {get}
-}
-fileprivate let sharedLanguageColorDictionaryManager: LanguageColorDictionary = LanguageColorDictionary()
-
-extension LanguageColorDictionaryManager {
-    var dictionary: LanguageColorDictionary {
-        return sharedLanguageColorDictionaryManager
-    }
-}
-
 
 //MARK: representation of a single cell in table view reperesting queried github repositories
 class RepositoryTableViewCell: UITableViewCell {
@@ -70,8 +40,8 @@ class RepositoryTableViewCell: UITableViewCell {
     //MARK: LABELS
     let repoName    = SHLabel(text: "",  size: 14, textAlign: .left, font: .helveticaBold)
     let authorLabel = SHLabel(text: "by ", size: 14, textAlign: .left, font: .helveticaRegular)
-    let starsCount  = SHLabel(text: "", size: 12, textAlign: .left, font: .helveticaRegular)
-    let forksCount  = SHLabel(text: "", size: 12, textAlign: .left, font: .helveticaRegular)
+    let starsCount  = SHLabel(text: "", size: 14, textAlign: .left, font: .helveticaRegular)
+    let forksCount  = SHLabel(text: "", size: 14, textAlign: .left, font: .helveticaRegular)
     
     let languageLabel: SHLabel = {
         let label = SHLabel(text: "", color: .gray, size: 12, textAlign: .center, font: .helveticaRegular)
@@ -105,7 +75,7 @@ class RepositoryTableViewCell: UITableViewCell {
     }
     
     func setUI() {
-        let width = self.frame.size.width
+        let width = UIScreen.main.bounds.size.width
         
         authorImage.snp.makeConstraints { (make) in
             make.left.equalTo(self).offset(10)
@@ -129,11 +99,12 @@ class RepositoryTableViewCell: UITableViewCell {
             make.left.equalTo(repoName)
             make.height.equalTo(15)
             make.bottom.equalTo(authorImage)
+            make.width.equalTo(width*0.4)
         }
         
         starsIcon.snp.makeConstraints { (make) in
             make.height.equalTo(15)
-            make.left.equalTo(self).offset(width*0.75)
+            make.left.equalTo(self).offset(width*0.6)
             make.centerY.equalTo(authorLabel)
         }
         
@@ -144,13 +115,13 @@ class RepositoryTableViewCell: UITableViewCell {
         }
         
         forksIcon.snp.makeConstraints { (make) in
-            make.left.equalTo(starsIcon.snp_right).offset(25)
+            make.left.equalTo(self).offset(width*0.8)
             make.centerY.equalTo(authorLabel)
-            make.height.equalTo(10)
+            make.height.equalTo(15)
         }
         
         forksCount.snp.makeConstraints { (make) in
-            make.left.equalTo(forksIcon.snp_right).offset(2)
+            make.left.equalTo(forksIcon.snp_right)
             make.centerY.equalTo(authorLabel)
             make.height.equalTo(10)
         }

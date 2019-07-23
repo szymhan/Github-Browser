@@ -54,7 +54,9 @@ extension SingleRepositoryViewController {
     func fillUI() {
         repositoryView.viewModel = viewModel
         self.navigationItem.title = viewModel?.repositoryName
+        
         let readmeText = dataLoader.getReadme(repoName: viewModel!.repositoryName, ownerName:viewModel!.userName )
+        
         let markDownParser = MarkdownParser()
         repositoryView.readme.attributedText = markDownParser.parse(readmeText)
     }
@@ -76,10 +78,9 @@ extension SingleRepositoryViewController {
         return backButton
     }
     
+    //returns to previous controller
     @objc private func backButtonPressed() {
         self.navigationController?.popToRootViewController(animated: true)
-        //dismiss(animated: true, completion: nil)
-        //        navigationController?.popViewController(animated: true)
     }
 
 }

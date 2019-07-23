@@ -11,7 +11,9 @@ import Foundation
 // Struct responsible for building sort & order part of endpoint (for example "&sort=best_match&order=desc")
 struct SortOrderConstructor {
     private var options:NSArray?
+    
     var selectedSortOrder:String
+    
     
     init(selectedText:String) {
         self.selectedSortOrder = selectedText

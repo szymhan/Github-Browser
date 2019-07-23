@@ -54,22 +54,30 @@ class RepositoryViewModelForTableView: NSObject, RepositoryViewModel {
     
     init?(withRepository repositoryModel:Repository) {
         guard let rid   = repositoryModel.id else {return nil}
-        id              = rid
+        
         guard let rn    = repositoryModel.name else {return nil}
-        repositoryName  = rn
+        
         guard let owner = repositoryModel.owner, let login = owner.login else {return nil}
-        userName        = login
+        
         guard let sc    = repositoryModel.stargazersCount else {return nil}
-        starsCount      = String(sc)
+        
         guard let fc    = repositoryModel.forks else {return nil}
-        forksCount      = String(fc)
+        
         guard let uiu   = owner.avatarURL else {return nil}
+        
+        guard let html  = repositoryModel.htmlURL else {return nil}
+        
+        guard let dateToFormat = repositoryModel.createdAt else {return nil}
+        
+        id              = rid
+        repositoryName  = rn
+        userName        = login
         userImageURL    = uiu
+        starsCount      = String(sc)
+        forksCount      = String(fc)
         language        = repositoryModel.language ?? ""
         license         = repositoryModel.license?.name ?? ""
-        guard let html  = repositoryModel.htmlURL else {return nil}
         htmlURL         = html
-        guard let dateToFormat = repositoryModel.createdAt else {return nil}
         created         = "01-01-1970"
         if let openIssues = repositoryModel.openIssues{
             self.openIssues = String(openIssues)
@@ -77,7 +85,7 @@ class RepositoryViewModelForTableView: NSObject, RepositoryViewModel {
             self.openIssues = "0"
         }
         super.init()
-        created         =  self.formatDate(date: dateToFormat)
+        created   =  self.formatDate(date: dateToFormat)
         userImage = UIImage(named: "default_avatar") //default icon
     }
     

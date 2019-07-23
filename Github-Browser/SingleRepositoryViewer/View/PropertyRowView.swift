@@ -27,11 +27,11 @@ class PropertyRowView: UIView {
     func setUI() {
         propertyLabel.snp.makeConstraints { (make) in
             make.top.bottom.left.equalTo(self)
-            make.width.equalTo(self).multipliedBy(0.4)
+            make.width.equalTo(self).multipliedBy(0.3)
         }
         
         propertyValue.snp.makeConstraints { (make) in
-            make.top.bottom.equalTo(self)
+            make.top.right.bottom.equalTo(self)
             make.left.equalTo(propertyLabel.snp_right).offset(5)
         }
     }

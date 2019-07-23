@@ -18,7 +18,7 @@ class SingleRepositoryView: UIView {
     let stars       = PropertyRowView(labelName: "stars :")
     let forks       = PropertyRowView(labelName: "forks :")
     let created     = PropertyRowView(labelName: "Created :")
-    let openIssues  = PropertyRowView(labelName: "Opened Issues :")
+    let openIssues  = PropertyRowView(labelName: "Open Issues :")
     
     let readme:UITextView = {
        let readme = UITextView()
@@ -101,7 +101,7 @@ class SingleRepositoryView: UIView {
         
         html.snp.makeConstraints { (make) in
             make.top.equalTo(author.snp_bottom).offset(10)
-            make.width.equalTo(self).multipliedBy(0.7)
+            make.width.equalTo(self).multipliedBy(0.8)
             make.left.equalTo(self).offset(15)
             make.height.equalTo(20)
         }
