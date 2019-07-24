@@ -21,4 +21,10 @@ protocol QueryElementDelegate {
     func returnContent() -> String?
 }
 
+protocol DataLoading {
+    func buildURL() -> Endpoint?
+    func handleDataInitialLoading()
+    func handleDataAdding()
+}
+
 
