@@ -32,12 +32,14 @@ class SingleRepositoryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // enabling top bar display
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        //hiding top bar display when returning to main screen
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
