@@ -67,6 +67,8 @@
 		A0B3AEF822E7B2850077412A /* QueryBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B3AEF722E7B2850077412A /* QueryBuilderTests.swift */; };
 		A0B3AEFA22E7B9CB0077412A /* SortOrderBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B3AEF922E7B9CB0077412A /* SortOrderBuilderTests.swift */; };
 		A0DA2AAF22E7770C008571FB /* (null) in Sources */ = {isa = PBXBuildFile; };
+		A0F738EC22E83CD500D537C0 /* AlertController_+_lightContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F738EB22E83CD500D537C0 /* AlertController_+_lightContent.swift */; };
+		A0F738EE22E8469600D537C0 /* CheckBoxLabelPairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F738ED22E8469600D537C0 /* CheckBoxLabelPairView.swift */; };
 		DBE0EB5337F9063B56373412 /* Pods_Github_BrowserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8637AF42C944CC2601D8398F /* Pods_Github_BrowserTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +150,8 @@
 		A0B3AEF522E7AE750077412A /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		A0B3AEF722E7B2850077412A /* QueryBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryBuilderTests.swift; sourceTree = "<group>"; };
 		A0B3AEF922E7B9CB0077412A /* SortOrderBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrderBuilderTests.swift; sourceTree = "<group>"; };
+		A0F738EB22E83CD500D537C0 /* AlertController_+_lightContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertController_+_lightContent.swift"; sourceTree = "<group>"; };
+		A0F738ED22E8469600D537C0 /* CheckBoxLabelPairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxLabelPairView.swift; sourceTree = "<group>"; };
 		B41AB0C80CEBA83F59FEB689 /* Pods-Github-BrowserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserTests.debug.xcconfig"; path = "Target Support Files/Pods-Github-BrowserTests/Pods-Github-BrowserTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDF69ADE09F1691366F72C00 /* Pods-Github-Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-Browser.release.xcconfig"; path = "Target Support Files/Pods-Github-Browser/Pods-Github-Browser.release.xcconfig"; sourceTree = "<group>"; };
 		D7D537EB6F9B3460633513CB /* Pods-Github-BrowserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserUITests.release.xcconfig"; path = "Target Support Files/Pods-Github-BrowserUITests/Pods-Github-BrowserUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -285,6 +289,7 @@
 		A020026822DBB1A60063369C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A0F738ED22E8469600D537C0 /* CheckBoxLabelPairView.swift */,
 				A02002BF22DE3EA00063369C /* FiltersTableViewCell.swift */,
 				A01936D322E3516800D4D105 /* RepositoryTableViewCell.swift */,
 				A020027322DBB25D0063369C /* SHTopView.swift */,
@@ -330,6 +335,7 @@
 				A020029522DCED8F0063369C /* UITableView_+_emptyView.swift */,
 				A02002CB22DF38E70063369C /* UITextField_+_disableAutoTypes.swift */,
 				A0B3AEE022E77AA60077412A /* UIViewControler_+_dismiss.swift */,
+				A0F738EB22E83CD500D537C0 /* AlertController_+_lightContent.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -578,6 +584,7 @@
 				A02002C622DEFFDC0063369C /* UIImageView_+_maskCircle.swift in Sources */,
 				A02002A922DDBC260063369C /* RawServerResponse.swift in Sources */,
 				A01936DE22E4FB6800D4D105 /* PropertyRowView.swift in Sources */,
+				A0F738EE22E8469600D537C0 /* CheckBoxLabelPairView.swift in Sources */,
 				A02002AD22DDBC9D0063369C /* Owner.swift in Sources */,
 				A02002B222DDEA320063369C /* JSONSchemaSupport.swift in Sources */,
 				A020028E22DC8E490063369C /* SortOptions.swift in Sources */,
@@ -609,6 +616,7 @@
 				A020028822DBDD320063369C /* Protocols.swift in Sources */,
 				A020029A22DCF9960063369C /* RepositoriesViewModel.swift in Sources */,
 				A020026F22DBB2060063369C /* SHLabel.swift in Sources */,
+				A0F738EC22E83CD500D537C0 /* AlertController_+_lightContent.swift in Sources */,
 				A01936DC22E4F61100D4D105 /* SingleRepositoryView.swift in Sources */,
 				A0B3AEDD22E77A430077412A /* PersistentService.swift in Sources */,
 				A020027222DBB22E0063369C /* Fonts.swift in Sources */,
