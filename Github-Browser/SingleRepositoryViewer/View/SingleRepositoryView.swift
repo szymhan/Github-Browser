@@ -141,7 +141,7 @@ class SingleRepositoryView: UIView {
             make.top.equalTo(readmeLabel.snp_bottom).offset(5)
             make.centerX.equalTo(self)
             make.width.equalTo(self).multipliedBy(0.9)
-            make.height.equalTo(width)
+            make.bottom.equalTo(self)
         }
     }
     
