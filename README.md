@@ -5,6 +5,7 @@
 
 RepoBrowser is an app, that allows you to briefly search through all repositories on GitHub using main search field and other filters. By choosing one, you can see more details, copy address to clipboard and read the simplified version of readme.md.
 
+Feel free to comment.
 ![](screen_recording.gif)
 
 ## Features
@@ -24,6 +25,10 @@ MKProgress by kamirana4         - https://github.com/kamirana4/MKProgress
 MarkDownKit by bmoliveira       - https://github.com/bmoliveira/MarkdownKit  
 RevealingSplashView by PiXel16  - https://github.com/PiXeL16/RevealingSplashView  
 SimpleCheckBox by BeauNouvelle  - https://github.com/BeauNouvelle/SimpleCheckbox  
+
+## TO DO
+
+- add an option to mark chosen repository and put in "Saved" list and add relevant controller
 
 
 ## Meta
