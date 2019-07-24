@@ -15,7 +15,7 @@ enum FetchingDataError: Error {
 
 class DataLoader {
 
-    
+    // asynchronously gets JSON from URL parameter and parse it to RepositoriesViewModel and downloads owners' avatars
     func handleDataLoading(url: URL, completion: @escaping (RepositoriesViewModel?, Error?) -> ()) {
 
         let request = URLRequest(url: url)
@@ -100,7 +100,7 @@ class DataLoader {
         
         return promise.future
         }
-    
+    //synchronously downloads avatar
     fileprivate func downloadAvatars(data:RepositoriesViewModel) -> Future<RepositoriesViewModel> {
         print(#function)
         let promise = Promise<RepositoriesViewModel>()
@@ -109,6 +109,7 @@ class DataLoader {
         return promise.future
     }
     
+    /// synchronously downloads readme.md using repository and owner names
     func getReadme(repoName: String, ownerName: String) -> String {
         let source = "https://raw.githubusercontent.com/\(ownerName)/\(repoName)/master/README.md"
         guard let url = URL(string: source) else {return ""}

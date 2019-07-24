@@ -14,7 +14,7 @@ public enum PlistManagerError: Error {
 }
 
 class PlistManager {
-       
+    // singleton shared object
     public static let shared = PlistManager()
     //This prevents others from using the default '()' initializer for this class.
     private init() {}

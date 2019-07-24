@@ -10,6 +10,7 @@ import UIKit
 
 extension UIImageView {
     
+    //method for changing rectangular UIImage into circular one
     public func maskCircle(anyImage: UIImage, andSize size: CGFloat) {
         let resized = resizeImage(image: anyImage, targetSize: CGSize(width: size, height: size))
         self.contentMode        = .scaleAspectFill

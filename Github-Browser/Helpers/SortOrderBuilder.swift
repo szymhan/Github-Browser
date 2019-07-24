@@ -58,6 +58,7 @@ extension SortOrderBuilder {
         return ""
     }
     
+    //method for loading data from SortOrder.plist using PlistManager class
     mutating private func loadPlist() {
         PlistManager.shared.getArrayFrom("SortOrder") { (result, err) in
             if err != nil {
