@@ -70,6 +70,7 @@
 		A0F738EC22E83CD500D537C0 /* AlertController_+_lightContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F738EB22E83CD500D537C0 /* AlertController_+_lightContent.swift */; };
 		A0F738EE22E8469600D537C0 /* CheckBoxLabelPairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F738ED22E8469600D537C0 /* CheckBoxLabelPairView.swift */; };
 		A0F738F022E865DD00D537C0 /* RepositoriesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F738EF22E865DD00D537C0 /* RepositoriesViewModelTests.swift */; };
+		A0F738F222E86FE700D537C0 /* RepositoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F738F122E86FE700D537C0 /* RepositoryViewModelTests.swift */; };
 		DBE0EB5337F9063B56373412 /* Pods_Github_BrowserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8637AF42C944CC2601D8398F /* Pods_Github_BrowserTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +155,7 @@
 		A0F738EB22E83CD500D537C0 /* AlertController_+_lightContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertController_+_lightContent.swift"; sourceTree = "<group>"; };
 		A0F738ED22E8469600D537C0 /* CheckBoxLabelPairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxLabelPairView.swift; sourceTree = "<group>"; };
 		A0F738EF22E865DD00D537C0 /* RepositoriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModelTests.swift; sourceTree = "<group>"; };
+		A0F738F122E86FE700D537C0 /* RepositoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModelTests.swift; sourceTree = "<group>"; };
 		B41AB0C80CEBA83F59FEB689 /* Pods-Github-BrowserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserTests.debug.xcconfig"; path = "Target Support Files/Pods-Github-BrowserTests/Pods-Github-BrowserTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDF69ADE09F1691366F72C00 /* Pods-Github-Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-Browser.release.xcconfig"; path = "Target Support Files/Pods-Github-Browser/Pods-Github-Browser.release.xcconfig"; sourceTree = "<group>"; };
 		D7D537EB6F9B3460633513CB /* Pods-Github-BrowserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserUITests.release.xcconfig"; path = "Target Support Files/Pods-Github-BrowserUITests/Pods-Github-BrowserUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				A0B3AEF722E7B2850077412A /* QueryBuilderTests.swift */,
 				A0B3AEF922E7B9CB0077412A /* SortOrderBuilderTests.swift */,
 				A0F738EF22E865DD00D537C0 /* RepositoriesViewModelTests.swift */,
+				A0F738F122E86FE700D537C0 /* RepositoryViewModelTests.swift */,
 			);
 			path = "Github-BrowserTests";
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F738F222E86FE700D537C0 /* RepositoryViewModelTests.swift in Sources */,
 				A0F738F022E865DD00D537C0 /* RepositoriesViewModelTests.swift in Sources */,
 				A0B3AEFA22E7B9CB0077412A /* SortOrderBuilderTests.swift in Sources */,
 				A020024D22DBAC700063369C /* Github_BrowserTests.swift in Sources */,

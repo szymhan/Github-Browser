@@ -53,21 +53,15 @@ class RepositoryViewModelForTableView: NSObject, RepositoryViewModel {
     var license: String
     
     init?(withRepository repositoryModel:Repository) {
-        guard let rid   = repositoryModel.id else {return nil}
-        
-        guard let rn    = repositoryModel.name else {return nil}
-        
-        guard let owner = repositoryModel.owner, let login = owner.login else {return nil}
-        
-        guard let sc    = repositoryModel.stargazersCount else {return nil}
-        
-        guard let fc    = repositoryModel.forks else {return nil}
-        
-        guard let uiu   = owner.avatarURL else {return nil}
-        
-        guard let html  = repositoryModel.htmlURL else {return nil}
-        
-        guard let dateToFormat = repositoryModel.createdAt else {return nil}
+        guard let rid   = repositoryModel.id,
+        let rn    = repositoryModel.name,
+        let owner = repositoryModel.owner,
+        let login = owner.login,
+        let sc    = repositoryModel.stargazersCount,
+        let fc    = repositoryModel.forks,
+        let uiu   = owner.avatarURL,
+        let html  = repositoryModel.htmlURL,
+        let dateToFormat = repositoryModel.createdAt else {return nil}
         
         id              = rid
         repositoryName  = rn
