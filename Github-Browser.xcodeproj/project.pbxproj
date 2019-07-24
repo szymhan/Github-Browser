@@ -69,6 +69,7 @@
 		A0DA2AAF22E7770C008571FB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		A0F738EC22E83CD500D537C0 /* AlertController_+_lightContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F738EB22E83CD500D537C0 /* AlertController_+_lightContent.swift */; };
 		A0F738EE22E8469600D537C0 /* CheckBoxLabelPairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F738ED22E8469600D537C0 /* CheckBoxLabelPairView.swift */; };
+		A0F738F022E865DD00D537C0 /* RepositoriesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F738EF22E865DD00D537C0 /* RepositoriesViewModelTests.swift */; };
 		DBE0EB5337F9063B56373412 /* Pods_Github_BrowserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8637AF42C944CC2601D8398F /* Pods_Github_BrowserTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +153,7 @@
 		A0B3AEF922E7B9CB0077412A /* SortOrderBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrderBuilderTests.swift; sourceTree = "<group>"; };
 		A0F738EB22E83CD500D537C0 /* AlertController_+_lightContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertController_+_lightContent.swift"; sourceTree = "<group>"; };
 		A0F738ED22E8469600D537C0 /* CheckBoxLabelPairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxLabelPairView.swift; sourceTree = "<group>"; };
+		A0F738EF22E865DD00D537C0 /* RepositoriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModelTests.swift; sourceTree = "<group>"; };
 		B41AB0C80CEBA83F59FEB689 /* Pods-Github-BrowserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserTests.debug.xcconfig"; path = "Target Support Files/Pods-Github-BrowserTests/Pods-Github-BrowserTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDF69ADE09F1691366F72C00 /* Pods-Github-Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-Browser.release.xcconfig"; path = "Target Support Files/Pods-Github-Browser/Pods-Github-Browser.release.xcconfig"; sourceTree = "<group>"; };
 		D7D537EB6F9B3460633513CB /* Pods-Github-BrowserUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-BrowserUITests.release.xcconfig"; path = "Target Support Files/Pods-Github-BrowserUITests/Pods-Github-BrowserUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				A02002A622DDBC030063369C /* Model */,
 				A02002A122DD22540063369C /* Services */,
 				A020027022DBB2230063369C /* View */,
+				A020026A22DBB1B20063369C /* ViewModel */,
 				A020026522DBB1420063369C /* RepositoriesBrowser */,
 				A01936D722E4F32E00D4D105 /* SingleRepositoryViewer */,
 				A020024322DBAC700063369C /* Info.plist */,
@@ -272,6 +275,7 @@
 				A0B3AEF522E7AE750077412A /* EndpointTests.swift */,
 				A0B3AEF722E7B2850077412A /* QueryBuilderTests.swift */,
 				A0B3AEF922E7B9CB0077412A /* SortOrderBuilderTests.swift */,
+				A0F738EF22E865DD00D537C0 /* RepositoriesViewModelTests.swift */,
 			);
 			path = "Github-BrowserTests";
 			sourceTree = "<group>";
@@ -279,7 +283,6 @@
 		A020026522DBB1420063369C /* RepositoriesBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				A020026A22DBB1B20063369C /* ViewModel */,
 				A020026822DBB1A60063369C /* View */,
 				A020026622DBB1780063369C /* RepositoriesBrowserViewController.swift */,
 			);
@@ -631,6 +634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F738F022E865DD00D537C0 /* RepositoriesViewModelTests.swift in Sources */,
 				A0B3AEFA22E7B9CB0077412A /* SortOrderBuilderTests.swift in Sources */,
 				A020024D22DBAC700063369C /* Github_BrowserTests.swift in Sources */,
 				A0B3AEF822E7B2850077412A /* QueryBuilderTests.swift in Sources */,
