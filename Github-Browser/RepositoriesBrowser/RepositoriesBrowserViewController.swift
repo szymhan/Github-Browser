@@ -78,7 +78,7 @@ class RepositoriesBrowserViewController: UIViewController {
         }
     }
     var queryConstructor: QueryConstructor?
-    var sortOrderConstructor = SortOrderConstructor(selectedText: "Best Match")
+    var sortOrderConstructor = SortOrderBuilder(selectedText: "Best Match")
     let dataLoader = DataLoader()
     let errorWhileLoading   = "Eror while loading data from server"
     let checkConnection     = "Check your internet connection and try again later"
@@ -118,7 +118,7 @@ class RepositoriesBrowserViewController: UIViewController {
             .build()
         
         filtersCell.sortDropDown.didSelect { (selectedText, _, _) in
-            self.sortOrderConstructor = SortOrderConstructor(selectedText: selectedText)
+            self.sortOrderConstructor = SortOrderBuilder(selectedText: selectedText)
         }
         topView.searchTextField.lastSearched =  PersistentServiceHelper.fetchSearches()
     }
