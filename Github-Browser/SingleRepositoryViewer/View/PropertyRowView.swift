@@ -9,10 +9,13 @@
 import UIKit
 import SnapKit
 
+//
+//Class that represents the repetitive element of UI - a key label with a value label in SingleRepositoryView, made to clean up the code
+//
 class PropertyRowView: UIView {
     
-    let propertyLabel = SHLabel(text: "", color: .black, size: 16, textAlign: .right, font: .helveticaRegular)
-    let propertyValue = SHLabel(text: "", color: .black, size: 16, textAlign: .left, font: .helveticaRegular)
+    let propertyLabel = SHLabel(text: "", color: .black, size: 14, textAlign: .right, font: .helveticaRegular)
+    let propertyValue = SHLabel(text: "", color: .black, size: 14, textAlign: .left, font: .helveticaRegular)
     
     init(labelName:String) {
         super.init(frame: .zero)

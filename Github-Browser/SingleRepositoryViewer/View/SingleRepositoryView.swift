@@ -93,17 +93,17 @@ class SingleRepositoryView: UIView {
         }
         
         copyToClipboard.snp.makeConstraints { (make) in
-            make.left.equalTo(self).offset(width * 0.15)
+            make.left.equalTo(self).offset(width * 0.20)
             make.centerY.equalTo(avatar)
             make.width.equalTo(width * 0.3)
-            make.height.equalTo(avatar.snp_height).multipliedBy(0.3)
+            make.height.equalTo(avatar.snp_height).multipliedBy(0.4)
         }
         
         html.snp.makeConstraints { (make) in
             make.top.equalTo(author.snp_bottom).offset(10)
             make.width.equalTo(self).multipliedBy(0.8)
             make.left.equalTo(self).offset(15)
-            make.height.equalTo(20)
+            make.height.equalTo(15)
         }
         
         language.snp.makeConstraints { (make) in
@@ -141,7 +141,7 @@ class SingleRepositoryView: UIView {
             make.top.equalTo(readmeLabel.snp_bottom).offset(5)
             make.centerX.equalTo(self)
             make.width.equalTo(self).multipliedBy(0.9)
-            make.bottom.equalTo(self)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(5)
         }
     }
     
@@ -161,7 +161,7 @@ class SingleRepositoryView: UIView {
          avatar.image                   = vm.userImage
         
         avatar.snp.makeConstraints { (make) in
-            make.height.width.equalTo(width * 0.3)
+            make.height.width.equalTo(width * 0.25)
             
         }
     }
