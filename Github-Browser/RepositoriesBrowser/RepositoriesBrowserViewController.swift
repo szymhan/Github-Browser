@@ -18,7 +18,9 @@ enum ExpandedViewOption {
 
 class RepositoriesBrowserViewController: UIViewController {
     
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //MARK: VIEWS
+    
     let topView     = SHTopView()
    // let filterView  = SHFilterView()
     let filterTableView: UITableView = {
@@ -34,6 +36,7 @@ class RepositoriesBrowserViewController: UIViewController {
         return rtv
     }()
     
+    //button responsible for hiding and showing filters view
     let showMoreFilters:UIButton = {
         let button = UIButton(type: .system)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
@@ -47,7 +50,7 @@ class RepositoriesBrowserViewController: UIViewController {
        let tvsh = SHPaddingLabel(text: "", color: .black, size: 16, textAlign: .left, font: .helveticaBold)
         return tvsh
     }()
-    // cell representing filters View
+    // cell representing filtersView
     let filtersCell: FiltersTableViewCell = {
       let fc = FiltersTableViewCell(style: .subtitle, reuseIdentifier: "filters_identifier")
         return fc
@@ -57,7 +60,7 @@ class RepositoriesBrowserViewController: UIViewController {
     //MARK: VIEWMODEL
     var viewModel: RepositoriesViewModel? {
         didSet {
-            handleTableViewDataReloading()
+            repositoriesTableView.reloadData()
         }
     }
     //MARK: VARIABLES
@@ -77,6 +80,7 @@ class RepositoriesBrowserViewController: UIViewController {
             }
         }
     }
+    
     var queryConstructor: QueryConstructor?
     var sortOrderConstructor = SortOrderBuilder(selectedText: "Best Match")
     let dataLoader = DataLoader()
@@ -89,8 +93,8 @@ class RepositoriesBrowserViewController: UIViewController {
     //MARK: CONSTANTS
     //
     let REPOSITORIES_IDENTIFIER:String  = "repositories_identifier"
-    let FILTERS_IDENTIFIER:String       = "filters_identifier"
     
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,10 +104,9 @@ class RepositoriesBrowserViewController: UIViewController {
         self.view.addSubview(topView)
         self.view.addSubview(filterTableView)
         self.view.addSubview(repositoriesTableView)
+        
         fillUI()
-
         setDelegates()
-        addGestureRecognizers()
     }
     
     override func viewDidLayoutSubviews() {
@@ -112,21 +115,21 @@ class RepositoriesBrowserViewController: UIViewController {
             .appendText(topView.searchTextField)
             .appendLanguage(filtersCell.languageTextField)
             .appendUser(filtersCell.authorTextField)
-            .appendIn([filtersCell.readmeCheckbox,
-                       filtersCell.nameCheckbox,
-                       filtersCell.descriptionCheckBox])
+            .appendIn([filtersCell.readmeCheckBox.checkBox,
+                       filtersCell.nameCheckBox.checkBox,
+                       filtersCell.descriptionCheckBox.checkBox])
             .build()
         
         filtersCell.sortDropDown.didSelect { (selectedText, _, _) in
             self.sortOrderConstructor = SortOrderBuilder(selectedText: selectedText)
         }
+        //fetch Core Data to fill top searchfield Last Searched element with [String]
         topView.searchTextField.lastSearched =  PersistentServiceHelper.fetchSearches()
     }
     
     func fillUI() {
         topView.snp.makeConstraints{ (make) in
             make.top.left.right.equalTo(self.view)
-            //make.height.equalTo(self.view).multipliedBy(0.20)
         }
         
         filterTableView.snp.makeConstraints { (make) in
@@ -143,6 +146,7 @@ class RepositoriesBrowserViewController: UIViewController {
         updateFilterViewheightConstraint()
     }
     
+    //dynamically changes the height of filtersView element for UI responsiveness
     func updateFilterViewheightConstraint() {
         
         switch expandedFiltersView {
@@ -165,18 +169,7 @@ class RepositoriesBrowserViewController: UIViewController {
         repositoriesTableView.dataSource    = self
         
         repositoriesTableView.register(RepositoryTableViewCell.self, forCellReuseIdentifier: REPOSITORIES_IDENTIFIER)
-        filterTableView.register(FiltersTableViewCell.self, forCellReuseIdentifier: FILTERS_IDENTIFIER)
-    }
-    
-    func addGestureRecognizers() {
-        let viewTapGestureRec = UITapGestureRecognizer(target: self, action: #selector(handleViewTap))
-        //this line is important
-        viewTapGestureRec.cancelsTouchesInView = false
-        self.topView.addGestureRecognizer(viewTapGestureRec)
-        self.filterTableView.addGestureRecognizer(viewTapGestureRec)
-        self.repositoriesTableView.addGestureRecognizer(viewTapGestureRec)
-        
-        filtersCell.searchIcon.addTarget(self, action: #selector(handleDataLoading), for: .touchUpInside)
+        filtersCell.searchIcon.addTarget(self, action: #selector(textFieldShouldReturn(_:)), for: .touchUpInside)
     }
     
     @objc func handleViewTap() {
@@ -195,65 +188,16 @@ class RepositoriesBrowserViewController: UIViewController {
 
 
 
+
 extension RepositoriesBrowserViewController {
-    func handleTableViewDataReloading() {
-        repositoriesTableView.reloadData()
-    }
-    
-    func handleDataInitialLoading() {
-        pagesLoaded = 1
-        MKProgress.show()
-        let query = topView.searchTextField.text
-        guard let endpoint = buildURL(), let endpointURL = endpoint.url else {
-            showAlert(title: self.loadingFailed, message: self.tryAgain, actionLabel: "OK")
-            return
-        }
-        actualEndpoint = endpoint
-        
-        dataLoader.handleDataLoading(url: endpointURL) { (viewModel, error) in
-            MKProgress.hide()
-            switch (viewModel, error) {
-            case (let newVM, nil) :
-                newVM?.query = query
-                self.viewModel = newVM
-            case ( nil , _):
-                self.showAlert(title: self.errorWhileLoading, message: self.checkConnection, actionLabel: self.close)
-            case (.some(_), .some(_)):
-                self.showAlert(title: self.errorWhileLoading, message: self.checkConnection, actionLabel: self.close)
-            }
-        }
-    }
-    
-    func handleDataAdding() {
-        guard let endpointURL = actualEndpoint?.url else {return}
-        
-        dataLoader.handleDataLoading(url: endpointURL) { (viewModel, error) in
-            switch (viewModel, error) {
-            case (let newVM, nil) :
-                self.addNewRepositoriesToViewModel(from: newVM)
-            default:
-                print("Process of adding data finished")
-                
-            }
-        }
-    }
     
     private func addNewRepositoriesToViewModel (from newViewModel: RepositoriesViewModel?) {
         guard let newVM  = newViewModel else {return}
         let repositories = newVM.repositories
         self.viewModel?.repositories.append(contentsOf: repositories)
-        handleTableViewDataReloading()
+        repositoriesTableView.reloadData()
     }
     
-    //builds Endpoint out of all UI elements
-    func buildURL() -> Endpoint?{
-        guard let constructor = queryConstructor else {return nil}
-        let matching    = constructor.matching
-        let sortedBy    = sortOrderConstructor.sortedBy
-        let orderBy     = sortOrderConstructor.orderBy
-        let endpoint    = Endpoint.search(matching: matching, sortedBy: sortedBy, orderBy: orderBy, page: pagesLoaded)
-        return endpoint 
-    }
     
     func showAlert(title: String, message:String, actionLabel: String) {
         let alertController = UIAlertController(title: title, message:
@@ -355,7 +299,7 @@ extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDat
         //check if this is the last cell that will be displayed
         if isMoreToLoad(row: indexPath.row) {
             pagesLoaded += 1
-            actualEndpoint?.changePage(page: pagesLoaded)
+            actualEndpoint?.setPage(page: pagesLoaded)
             handleDataAdding()
         }
     }
@@ -392,7 +336,7 @@ extension RepositoriesBrowserViewController: UITableViewDelegate, UITableViewDat
 }
 
 extension RepositoriesBrowserViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         saveSearch()
         handleDataLoading()
         topView.searchTextField.hideResultsList()
@@ -404,11 +348,13 @@ extension RepositoriesBrowserViewController: UITextFieldDelegate {
     fileprivate func saveSearch() {
         
         guard let searchText = topView.searchTextField.text, searchText != "" else {return}
-    
+        // create object that conforms Core Data entity
         let search = Search(context: PersistenceService.context)
         search.text = searchText
         search.date = Date()
+        // save objects
         PersistenceService.saveContext()
+        //update
         topView.searchTextField.lastSearched =  PersistentServiceHelper.fetchSearches()
     }
     
@@ -425,6 +371,58 @@ extension RepositoriesBrowserViewController: UITextFieldDelegate {
         }
         handleDataInitialLoading()
         
+    }
+}
+
+
+extension RepositoriesBrowserViewController: DataLoading {
+    
+    //builds Endpoint out of all UI elements
+    func buildURL() -> Endpoint?{
+        guard let constructor = queryConstructor else {return nil}
+        let matching    = constructor.matching
+        let sortedBy    = sortOrderConstructor.sortedBy
+        let orderBy     = sortOrderConstructor.orderBy
+        let endpoint    = Endpoint.search(matching: matching, sortedBy: sortedBy, orderBy: orderBy, page: pagesLoaded)
+        return endpoint
+    }
+    
+    func handleDataInitialLoading() {
+        pagesLoaded = 1
+        MKProgress.show()
+        let query = topView.searchTextField.text
+        guard let endpoint = buildURL(), let endpointURL = endpoint.url else {
+            showAlert(title: self.loadingFailed, message: self.tryAgain, actionLabel: "OK")
+            return
+        }
+        actualEndpoint = endpoint
+        
+        dataLoader.handleDataLoading(url: endpointURL) { (viewModel, error) in
+            MKProgress.hide()
+            switch (viewModel, error) {
+            case (let newVM, nil) :
+                newVM?.query = query
+                self.viewModel = newVM
+            case ( nil , _):
+                self.showAlert(title: self.errorWhileLoading, message: self.checkConnection, actionLabel: self.close)
+            case (.some(_), .some(_)):
+                self.showAlert(title: self.errorWhileLoading, message: self.checkConnection, actionLabel: self.close)
+            }
+        }
+    }
+    
+    func handleDataAdding() {
+        guard let endpointURL = actualEndpoint?.url else {return}
+        
+        dataLoader.handleDataLoading(url: endpointURL) { (viewModel, error) in
+            switch (viewModel, error) {
+            case (let newVM, nil) :
+                self.addNewRepositoriesToViewModel(from: newVM)
+            default:
+                print("Process of adding data finished")
+                
+            }
+        }
     }
 }
 

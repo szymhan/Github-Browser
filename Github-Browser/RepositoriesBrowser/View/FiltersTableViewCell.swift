@@ -18,45 +18,14 @@ class FiltersTableViewCell: UITableViewCell {
     //MARK: LABELS
     let authorLabel         = SHLabel(text: "author name :", textAlign: .right, font: .helveticaRegular)
     let searchInLabel       = SHLabel(text: "search in :", textAlign: .right, font: .helveticaRegular)
-    let readmeLabel         = SHLabel(text: "readme", textAlign: .left, font: .helveticaRegular)
     let sortByLabel         = SHLabel(text: "sort by :", textAlign: .right, font: .helveticaRegular)
     let languageLabel       = SHLabel(text: "language :", textAlign: .right, font: .helveticaRegular)
-    let nameLabel           = SHLabel(text: "name",  textAlign: .left, font: .helveticaRegular)
-    let descriptionLabel    = SHLabel(text: "description", textAlign: .left, font: .helveticaRegular)
+
     
-    //MARK: BUTTONS
-    let readmeCheckbox:SHCheckBox = {
-        let rc = SHCheckBox(tag:"readme",frame: CGRect(x: 0, y: 0, width: 15, height: 15))
-        rc.checkedBorderColor   = .checkboxBlue
-        rc.uncheckedBorderColor = .grayOne
-        rc.checkmarkColor       = .checkboxBlue
-        rc.borderStyle          = .square
-        rc.checkmarkStyle       = .tick
-        rc.useHapticFeedback    = true
-        return rc
-    }()
-    let descriptionCheckBox:SHCheckBox = {
-        let rc = SHCheckBox(tag:"description",frame: CGRect(x: 0, y: 0, width: 15, height: 15))
-        rc.checkedBorderColor   = .checkboxBlue
-        rc.uncheckedBorderColor = .grayOne
-        rc.checkmarkColor       = .checkboxBlue
-        rc.borderStyle          = .square
-        rc.checkmarkStyle       = .tick
-        rc.useHapticFeedback    = true
-        rc.isChecked            = true
-        return rc
-    }()
-    let nameCheckbox:SHCheckBox = {
-        let rc = SHCheckBox(tag: "name",frame: CGRect(x: 0, y: 0, width: 15, height: 15))
-        rc.checkedBorderColor   = .checkboxBlue
-        rc.uncheckedBorderColor = .grayOne
-        rc.checkmarkColor       = .checkboxBlue
-        rc.borderStyle          = .square
-        rc.checkmarkStyle       = .tick
-        rc.useHapticFeedback    = true
-        rc.isChecked            = true
-        return rc
-    }()
+    let nameCheckBox = CheckBoxLabelPairView( tag: "name", isChecked: true)
+    let descriptionCheckBox = CheckBoxLabelPairView( tag: "description", isChecked: true)
+    let readmeCheckBox = CheckBoxLabelPairView(tag: "readme", isChecked: false)
+    
     //MARK: TEXTFIELDS
     let authorTextField: SHTextField = {
         let tf = SHTextField()
@@ -124,12 +93,9 @@ class FiltersTableViewCell: UITableViewCell {
         self.addSubview(sortByLabel)
         self.addSubview(sortDropDown)
         self.addSubview(searchInLabel)
-        self.addSubview(nameLabel)
-        self.addSubview(nameCheckbox)
-        self.addSubview(descriptionLabel)
+        self.addSubview(nameCheckBox)
         self.addSubview(descriptionCheckBox)
-        self.addSubview(readmeLabel)
-        self.addSubview(readmeCheckbox)
+        self.addSubview(readmeCheckBox)
         self.addSubview(searchIcon)
         setUI()
         loadPlist()
@@ -151,7 +117,7 @@ class FiltersTableViewCell: UITableViewCell {
     }
     
     func setUI() {
-
+        
         authorLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self)
             make.left.equalTo(self).offset(10)
@@ -160,7 +126,7 @@ class FiltersTableViewCell: UITableViewCell {
         authorTextField.snp.makeConstraints { (make) in
             make.left.equalTo(authorLabel.snp_right).offset(10)
             make.centerY.equalTo(authorLabel.snp_centerY).labeled("author textfield Xcentered to label")
-            make.width.equalTo(self).multipliedBy(0.5)
+            make.width.equalTo(self).multipliedBy(0.6)
            // make.height.equalTo(20)
         }
         
@@ -172,7 +138,7 @@ class FiltersTableViewCell: UITableViewCell {
         languageTextField.snp.makeConstraints { (make) in
             make.left.equalTo(languageLabel.snp_right).offset(10)
             make.centerY.equalTo(languageLabel.snp_centerY).labeled("language textfield Xcentered to label")
-            make.width.equalTo(self).multipliedBy(0.5)
+            make.width.equalTo(authorTextField)
         }
         
         sortByLabel.snp.makeConstraints { (make) in
@@ -192,44 +158,28 @@ class FiltersTableViewCell: UITableViewCell {
             make.bottom.equalTo(self).offset(-10)
         }
         
-        nameLabel.snp.makeConstraints { (make) in
+        descriptionCheckBox.snp.makeConstraints { (make) in
             make.top.equalTo(searchInLabel)
             make.left.equalTo(authorTextField)
+            make.width.equalTo(languageTextField.snp_width).multipliedBy(0.4)
         }
         
-        nameCheckbox.snp.makeConstraints { (make) in
-            make.left.equalTo(nameLabel.snp_right).offset(5)
-            make.centerY.equalTo(readmeLabel.snp_centerY)
-            make.width.height.equalTo(15)
-        }
-        
-        descriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(searchInLabel)
-            make.left.equalTo(nameCheckbox.snp_right).offset(5)
-        }
-        
-        descriptionCheckBox.snp.makeConstraints { (make) in
-            make.left.equalTo(descriptionLabel.snp_right).offset(5)
-            make.centerY.equalTo(readmeLabel.snp_centerY)
-            make.width.height.equalTo(15)
-        }
-            
-        
-        readmeLabel.snp.makeConstraints { (make) in
+        nameCheckBox.snp.makeConstraints { (make) in
             make.top.equalTo(searchInLabel)
             make.left.equalTo(descriptionCheckBox.snp_right).offset(5)
+            make.width.equalTo(languageTextField.snp_width).multipliedBy(0.25)
         }
-            
-        readmeCheckbox.snp.makeConstraints { (make) in
-            make.left.equalTo(readmeLabel.snp_right).offset(5)
-            make.centerY.equalTo(readmeLabel.snp_centerY)
-            make.width.height.equalTo(15)
+        
+        readmeCheckBox.snp.makeConstraints { (make) in
+            make.top.equalTo(searchInLabel)
+            make.left.equalTo(nameCheckBox.snp_right).offset(5)
+            make.width.equalTo(languageTextField.snp_width).multipliedBy(0.35)
         }
         
         searchIcon.snp.makeConstraints { (make) in
-            make.height.width.equalTo(25)
-            make.bottom.equalTo(self).offset(-5)
-            make.right.equalTo(self).offset(-20)
+            make.height.width.equalTo(20)
+            make.centerY.equalTo(nameCheckBox)
+            make.right.equalTo(self).offset(-10)
         }
     }
 
