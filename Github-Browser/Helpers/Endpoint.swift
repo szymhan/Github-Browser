@@ -43,7 +43,7 @@ extension Endpoint {
         return components.url
     }
     
-    mutating func changePage(page: Int) {
+    mutating func setPage(page: Int) {
         var queryItems = self.queryItems
         //filtering out page queryItem
         queryItems = queryItems.filter({!$0.name.hasPrefix("page")})

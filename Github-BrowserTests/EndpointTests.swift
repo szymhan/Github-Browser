@@ -31,7 +31,7 @@ class EndpointTests: XCTestCase {
     }
     
     func testEndPointChangePage() {
-        endPoint.changePage(page: 2)
+        endPoint.setPage(page: 2)
         
         let endPointURL = endPoint.url
         
